@@ -1,0 +1,6 @@
+/* css 文件注释 */
+/* 给当前页面，添加一个背景图片，背景添加给整个网页 */
+body{
+background-image:url(../images/bg.jpg);
+}
+

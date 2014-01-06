@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html>
+    <!-- 头部内容，给浏览器或搜索引擎看 -->
+    <head>
+        <!-- 注释，不运行 -->
+        <!-- 声明整个网页使用的字符编码集合 -->
+        <meta charset="UTF-8" />
+        
+        <!-- 浏览器上显示的网页标题 -->
+        <title>html 例子</title>
+        
+        <!-- 下面的给搜索引擎，关键字 -->
+        <!-- meta 元标签，后面定义什么内容，这个标签就表示什么意思 -->
+        <!-- robots 表示该网页支持百度、google 搜索引擎的搜索程序 -->
+        <meta content="all" name="robots" />
+        <!-- author 作者 -->
+        <meta name="author" content="ajie33(at)gmail.com,阿捷" />
+        <meta name="Copyright" content="www.w3cn.org,自由版权,任意转载" />
+        <!-- description 网页描述，搜索引擎搜索到，显示给用户看的简单网页描述 -->
+        <meta name="description" content="新网页设计师,web标准的教程站点,推动web标准在中国的应用." />
+        <!-- keywords  这个网页目前支持的关键字，关键字越多，网页被搜索到的机会越大 -->
+        <meta content="web标准,web标准教程,网站重构, css布局, xhtml, css,xhtml+css,layout, usability, w3cn, CSS+DIV" name="keywords" />
+        
+        <!-- 链接外部的一个 css 样式的文件，运行时，css  html 文件一起运行 -->
+        <!-- rel="stylesheet"  style风格、样式  sheet 表格，样式表 
+            rel 属性，提示 link 链接的是一个样式表文件
+         -->
+        <!-- type="text/css"  提示链接的外部文件用文本编辑器打开 text
+           后缀名为 .css
+         -->
+        <!-- media="all" 支持所有的多媒体类型 -->
+        <link rel="stylesheet" href="style/001.css" type="text/css" media="all"  />
+        
+        
+    </head>
+    
+    <!-- 身体内容，给用户看的 -->
+    <body>
+        <!-- h1 是整个网页中，默认最大号的字 -->
+        <h1>文档</h1>
+        <h2>文档</h2>
+        <h3>文档</h3>
+        <h4>文档</h4>
+        <h5>文档</h5>
+        <h6>文档</h6>
+        
+        <!-- 标题和段落都是不带任何属性值的 -->
+        <h1>段落例子</h1>
+        <p>据国外媒体报道，最近，几家机构相继调低了对中移动2014年净利润的预期值。瑞士信贷的分析师表示，他已经将中移动2014年的净利润预测值下调了9.1%，同时将中移动的目标股价下调了6%。瑞穗证券的分析师则估计，中国移动今年的净利润将下滑10%。</p>
+        <p>分析师对中移动营收的悲观预期出于各种原因，有的考虑到网间结算费用下调的影响，有的考虑到在与苹果签署iPhone销售协议后，高达几百亿元的巨额的设备补贴会拖累中移动营收利润；当然，在领取牌照后，中移动对4G网络组建的巨大投资，也是影响利润的重要原因。</p>
+        <!-- 添加图片，指明图片的路径(图片与当前 page1.html 在硬盘上的位置关系) -->
+        <!-- 使用  src="" 描述图片路径，如果 html jpg 在同一个文件夹中 -->
+        <!-- 下面两种路径的方法，都叫 相对路径:相对于 page1.html 本身的位置 -->
+        <!-- alt 当图片失效时，替换图片的文字 -->
+        <img src="0f0.jpg"   alt="iphone5S广告"></img>
+        <!-- ./ 表示当前文件夹 -->
+        <!-- width  height  设置图片的宽高，注意比例 -->
+        <img src="./images/Estimote-Beacons.png" alt="高科技"   width="50" height="50"></img>
+        <img src="./images/Estimote-Beacons.png" alt="高科技"   width="100" height="100"></img>
+        <img src="./images/Estimote-Beacons.png" alt="高科技"   width="200" height="200"></img>
+        
+        
+        
+        <h1>链接例子</h1>
+        <a href="http://www.baidu.com">文字链接-百度</a>
+        <!-- 链接到本机，相对路径，从当前页面出发 ../ 上一级目录-->
+        <a href="../Day2/page/aaa.html">Day2 例子</a>
+        <!-- 不想跳转，href 使用 # 标注 -->
+        <a href="#">百度翻译</a>
+        
+        <br />
+        
+        <h1>特殊字符例子</h1>
+        <h3>在网页中打印 html 标签</h3>
+        <img>
+        <!-- 转义字符，特殊字符  &开头  ;结尾   -->
+        <!-- 左尖括号 -->
+        &lt;img>
+        <!-- 空格 -->
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        <!-- 属性符号 -->
+        &Theta;
+        
+        <!--版权 -->
+        &copy;
+        
+        
+        
+        
+        
+        
+        
+    </body>
+</html>
+
+
+
+
+
+
+
