@@ -3,9 +3,25 @@
     <head>
             <meta charset="UTF-8" />
             <title>表格实例</title>
+            
+            
+            
+            <!-- 嵌入式 CSS 样式，写在 head 中 -->
+            <!-- 实现初步的 内容和样式分离 -->
+            <style type="text/css">
+                /* 所有的 css 都可以写在这里 */
+                h1{color:red;}
+                p{}
+            </style>
+            
+            
+            <!-- 外部链接样式表 文件 ，彻底实现内容和样式分离 -->
+            <link rel="stylesheet" href="style.css" type="text/css" />
     </head>
     <body>
-        <h1>基本表格的例子</h1>
+        <!-- 行内 css ，内容和样式不分离 -->
+        <!-- CSS 优先级原则: 对同一个标签设置相同的样式属性，哪个离标签近，哪个生效 -->
+        <h1 style="color:green;">基本表格的例子</h1>
         <!-- 设置整个表格的边框粗细为 1 像素 -->
         <table border="1">
             <!-- 表格头，一行，三列 -->
@@ -31,8 +47,7 @@
                 <td>死了都要爱</td>
             </tr>
         </table>
-        
-        
+                
         <h1>跨列合并单元格表格的例子</h1>
         <!-- 设置整个表格的边框粗细为 1 像素 -->
         <table border="1">
