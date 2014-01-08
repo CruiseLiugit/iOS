@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta  charset="UTF-8" />
+        <title>输入表单实例</title>
+    </head>
+    <body>
+        <h1>表单实例</h1>
+        <!-- 所有输入框，都必须包含在 form 标签内部，这样提交给后台才能接受到数据 -->
+        <form>
+            <h3>问卷调查表单</h3>
+            <!-- label 提示左右的便签 -->
+            
+            <!-- 所有的表单选项，通用属性
+             name   标明每个表单项的名称
+             value  预先设置的值，如果不设置采用用户输入的值，单选、复选、下拉采用数字
+             placeholder  占位显示内容
+             size    尺寸
+             maxlength    限制最大输入字符的个数
+               禁用输入框
+             -->
+            <label>姓名:</label>
+            <!-- input 指普通输入框，具体功能由 type 决定 -->
+            <!-- 
+             type="text"      输入文本，正常显示
+             type="password"  输入文本，显示为小黑点
+             type="email"     输入文本，自动验证是否是邮箱格式
+             type="file"      无法输入，显示为选择本机图片按钮
+             -->
+            <input type="text" name="name" value="aaaa" placeholder="请输入姓名"  size="40"  maxlength="12"  /><br />
+            
+            <label>密码:</label>
+            <input type="password" name="pwd" value="" placeholder="请输入密码" /><br />
+            
+            <label>邮箱:</label>
+            <input type="email" name="email" value="" placeholder="请输入邮箱" /><br />
+            
+            <label>照片:</label>
+            <input type="file" name="photo" value="" /><br />
+            
+            <label>性别:</label>
+            <!--
+             单选，复选 都需要跟 input 的 name 属性有关
+             type="radio"  name="相同" 实现单选功能
+             type="checkbox" name="相同"
+             -->
+            <input type="radio" name="sex" value="1" />男
+            <input type="radio" name="sex" value="2" />女
+            <input type="radio" name="sex" value="3" />人妖
+            <br />
+            
+            <label>爱好:</label>
+            <input type="checkbox" name="like" value="1" />看书
+            <input type="checkbox" name="like" value="2" />看电影
+            <input type="checkbox" name="like" value="3" />睡觉
+            <input type="checkbox" name="like" value="4" />上网
+            <input type="checkbox" name="like" value="5" />逛街
+            <br />
+            
+            <label>城市:</label>
+            <!-- 提供多个选择，多选一，下拉菜单 -->
+            <select name="city">
+                <option value="1">上海</option>
+                <option value="2" selected="selected">北京</option>
+                <option value="3" >广州</option>
+                <option value="4">深圳</option>
+                <option value="5">长沙</option>
+            </select>
+            
+            <br />
+            
+            <label>意见:</label>
+            <!-- 输入多行文字的"文字区域"，可以控制占几行 -->
+            <textarea column="10">
+            这里的内容，用户看到
+            </textarea>
+            <br />
+            
+            
+            <!-- 表单中必须提供按钮，用户填写完毕可以提交 -->
+            <!-- 假提交，点击按钮后，表单不做任何处理，没有任何反应 -->
+            <input type="button" name="" value="假提交" />
+            
+            <!--
+             url 网址? 表示后面是表单提交给后台的参数
+             name=value   
+             & 链接过个参数的符号
+             
+           xxx/form.html?
+             name=aaaa&
+             pwd=sdfasdf&
+             email=asdf%4032.com&
+             photo=%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7+2014-01-08+%E4%B8%8A%E5%8D%8810.05.25.png&
+             sex=1&
+             like=1&
+             like=3&
+             city=1
+            -->
+            <button>真提交</button>
+            <input type="submit" name="" value="真提交" />
+            
+            
+            
+        </form>
+        
+    
+    </body>
+</html>

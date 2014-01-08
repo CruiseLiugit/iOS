@@ -1,0 +1,303 @@
+目标
+    掌握表格标签,表单标签
+    什么是CSS(层叠样式表)
+    CSS的几种设置方式
+    CSS的选择器
+    样式规则的注释与有效范围
+    样式属性详解
+
+1、掌握表格标签,表单标签
+
+关于表格
+    在CSS流行之前，table被广泛应用于定位。在XHTML中，table不被推荐用来定位，W3C希望CSS可以取代<table>在定位方面的地位。
+
+表格标签<table>
+在XHTML中，创建表格的标签是<table>，书写代码时，我们要先用<tr>标签将表格分成一行一行，再用<td>标签把每行分成一格一格。
+
+表格标签
+<table>的属性
+border：表格的边框。 为0表示没有边框。
+cellspacing：单元格间距。当一个表格有多个单元格时，各单元格的距离就是cellspacing.
+cellpadding：单元格边距。指该单元格里的内容与cellspacing区域的距离
+width：表格的宽度。
+summary：表格的概述。相当于图片的alt属性
+
+表格标签
+colspan和rowspan这两个属性用于创建特殊的表格。
+colspan是“column span（跨列）”的缩写。colspan属性用在<td>标签中，用来指定单元格横向跨越的列数：
+rowspan的作用是指定单元格纵向跨越的行数。
+
+<caption></caption>设置表格标题(HTML4.01标准要求其必须紧跟在<table>标签后)
+
+表格标签
+Thead,tbody,tfoot
+可以将所有列标题放在THEAD元素中，这样就可以对这个区域单独地应用样式。
+如果选择使用THEAD或TFOOT，那么必须至少使用一个TBODY元素。
+THEAD和TFOOT在一个表中只用一次，但TBODY可以多个
+如果使用了THEAD，请不要使用TD标签而是TH
+
+
+关于表单
+表单在Web网页中用来给访问者填写信息，从而能获得用户信息，使网页具有交互的功能。
+
+表单标签
+<form></form>
+用来创建一个表单，即定义表单的开始和结束位置，在标志对之间的一切都属于表单的内容。该标签不可见。
+
+常用属性：
+action属性，指定处理程序的程序名(URL地址)
+    例如：<form action=“act/login.cgi”></form>
+
+表单标签
+<input type=“”>
+定义一个用户输入区，不同的type值决定输入区的类别
+
+表单标签
+公共属性：
+name属性，设定输入区域的名字，唯一
+id属性，设定输入区域的名字，唯一
+value属性，指定输入区域的缺省值
+
+<select></select>、<option></option>
+
+<select></select>
+标志对用来创建一个下拉列表框或可以复选的列表框，用于<form></form>标签中
+常用属性：
+multiple属性，值同属性名相等，设置为多选框
+name/id属性，设置列表框的名字
+size属性，设置列表的高度，缺省时值为1，若没有设置multiple属性，显示的将是一个弹出式的列表框
+
+表单标签
+<option></option>
+<option>标签用来指定列表框中的一个选项，放在<select></select>标签之间
+常用属性：
+selected属性，指定默认的选项
+value属性，为选项赋值
+表单标签
+
+
+<textarea></textarea>
+创建一个可以输入多行的文本框，此标签用于<form></form>标签之间
+常用属性：
+cols属性，设置文本框的列数
+rows属性，设置文本框的行数
+列与行是以字符数为单位的
+表单标签
+
+
+<label>标签	
+对输入区的用途进行提示，并能提供快捷键访问
+常用属性：
+for属性，指定快捷键作用于的表单字段元素，设置值须与某个表单字段的id值相同
+accesskey属性，指定作用于for属性对应的表单字段的快捷键：Alt键+指定快捷键
+
+
+2、什么是CSS(层叠样式表)
+CSS是Cascading Style Sheets(层叠样式表)的简称，作为HTML的补充定制和改善网页的显示效果
+
+CSS的作用
+(1)精确定位网页上的元素
+(2)实现内容和格式控制的分离
+(3)简化网页的格式代码
+(4)易于改变整个站点的风格特色
+
+
+3、CSS的几种设置方式
+(1)行内样式表(inline style sheets)
+样式可以使用style属性内联。style属性可以应用于任意body元素(包括body本身)，除了basefont、param和script。这个属性将任何数量的CSS声明当作自己的值，而每个声明用分号隔开。
+示例
+   <p style=“color: red;font-size:12pt”>  这段的样式是红色的</p> 
+
+(2)嵌入样式表(embedded style sheets)
+使用style元素在文档中嵌入，style元素放在文档的head部分。
+type属性，可选，“text/css”，指定其为样式表
+示例
+<style type="text/css”>
+<!--
+  body  { background: red; color: black }
+  p em { background: yellow; color: black }
+  .note { margin-left: 5em; margin-right: 5em }
+-->
+</styl>
+古老的浏览器不能识别<style>标签，会显示中间的内容，所以提倡用<!--  -->包括起来
+
+<style></style>标签中定义的样式规则的基本格式：
+选择器{
+属性名:属性值;
+属性名1:属性值1;
+…….
+属性名n:属性值n;
+}
+通常用于控制当前这一个页面的风格
+
+
+(3)外部样式表(linked style sheets)
+一个外部的样式表(.css文件)可通过HTML的link元素连接到HTML文档中
+   <link rel="StyleSheet“ href="style.css“ type="text/css“  />
+.css样式表文件格式与嵌入样式表的格式一样
+通常用于控制多个页面，或者控制整个站点的CSS样式表。
+
+
+
+4、CSS的选择器
+(1)HTML选择器
+用来重新定义页面当中，某个HTML标签的格式
+
+(2)类选择器(class)
+声明时，用点打头。调用时，不需要写点。名字可以自定义，但是不建议用数字开头。类可以被任何HTML标签所调用。
+HTML选择器和类同时使用表示，调用了该类的HTML元素
+如h1.mya  是指调用了mya这个类的所有h1标签
+
+(3)ID选择器(id)
+声明时，用#打头。调用时，不需要写#。基本使用方法同类，区别在于，类可以在一个页面中，由多个标签，多次引用。而ID在一个页面只允许被调用一次。
+CSS的选择器
+
+(4)伪类选择器
+a:link         =>  表示超链接未点击状态
+a:visited      =>  表示超链接点击之后的状态
+a:active       =>  表示超链接在鼠标按下一刹那的状态
+a:hover        =>  表示鼠标悬停在超链接上的状态
+
+(5)组合选择器
+ *  表示所有的选择器
+空格表示嵌套选择器
+逗号表示并列关系
+
+HTML标签名[属性名=“属性值“] 
+用来选择特定属性值的标签 --该选择器为CSS2.0选择器，IE7以上,火狐1以上支持
+样式规则的注释与有效范围
+
+
+样式表中的注释
+格式：/* 注释内容 */
+注释不能嵌套
+
+
+样式规则的优先级
+规则1：从上到下，从总体到局部，优先级升高
+规则2：ID选择器〉CLASS选择器〉HTML标签选择器
+规则3：内联样式表〉嵌入样式表〉链接样式表
+规则可以用指定的! important 特指为重要的。 
+
+
+5、CSS样式属性详解
+盒子
+样式属性详解
+        大体包括字体、背景、文本、位置、布局、边缘、列表、其他等几类。
+字体
+font-family 设置字体系列，用逗号分开，例如：P { font-family: "New Century Schoolbook", Times, serif }
+font-size 设置字体大小，可使用数字和度量单位来设置字体大小，也可使用相对的字体大小，还可以使用绝对的大小标记符
+绝对大小：xx-small | x-small | small | medium | large | x-large | xx-large
+相对大小：larger或smaller
+数字或单位：px像素、pt磅(1/72英寸)、em当前字体的原始大小的比例值，ex字母x的显示高度、%当前字体原始大小的百分比等
+
+
+样式属性详解
+font-style 设置字体风格，normal (普通)，italic (斜体) 或oblique (倾斜)。
+text-decoration设置文本效果，none、underline(下划线)、overline(上划线)、line-through(中划线)、blink(闪烁效果，只能在Navigator中看到效果)等，同时设置多个值时用空格分开
+font-weight 指定粗体字的磅值。normal | bold | bolder | lighter | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900，normal等同400，bold等同700
+font-variant字体变形属性决定了字体的显示是normal (普通) 还是small-caps (小型大写字母)。当文字中所有字母都是大写的时候，小型大写字母(值)会显示比小写字母稍大的大写字符。
+
+
+样式属性详解
+text-transform 设置关于字母大小写转换的属性，capitalize(单词首字母大写)、uppercase(所有大写)、lowercase(所有小写)、none(不转换)。
+color 定义文本颜色，3种表示方法：#RRGGBB、rgb(R,G,B)、CSS内定的颜色名称。
+font 字体设置的整体定义，允许值: [ <字体风格> || <字体变形> || <字体加粗> ]? <字体大小> [ / <行高> ]? <字体族科>
+例如：P { font: italic bold 12pt/14pt Times, serif } 
+
+
+样式属性详解
+背景
+background-color设定一个元素的背景颜色，例如：
+BODY { background-color: white }
+H1 { background-color: #000080 } 
+background-image设定一个元素的背景图象
+BODY { background-image: url(/images/foo.gif) } 
+P { background-image: url(http://edu.cn/1.jpg) }  
+background-repeat决定一个指定的背景图象如何被重复。值为repeat-x时，图象横向重复，当值为repeat-y时图象纵向重复。
+background-attachment指定背景图象是否跟随内容滚动，scroll | fixed
+样式属性详解
+background-position指定背景图象的初始位置。允许值: [<百分比> | <长度>]{1,2} | [top | center | bottom] || [left | center | right]
+
+
+关键字解释如下: 
+top left = left top = 0% 0% 
+top = top center = center top = 50% 0% 
+right top = top right = 100% 0% 
+left = left center = center left = 0% 50% 
+center = center center = 50% 50% 
+right = right center = center right = 100% 50% 
+bottom left = left bottom = 0% 100% 
+bottom = bottom center = center bottom = 50% 100% 
+bottom right = right bottom = 100% 100%  
+样式属性详解
+background背景属性的略写，例如：
+TABLE { background: #0c0 url(leaves.jpg) no-repeat bottom right }
+文本
+word-spacing 设置单词之间的间距
+P EM { word-spacing: 0.4em } 
+P.note { word-spacing: -0.2em }
+letter-spacing 设置字符之间的间距
+vertical-align 设置内部元素的纵向位置，baseline | sub | super | top | text-top | middle | bottom | text-bottom | <百分比>  
+
+
+
+样式属性详解
+text-align 排列块级元素的文本，left | right | center | justify(两端对齐)
+text-indent 设置块级元素的文本缩进(第一行)。
+white-space 设置如何处理元素内的空白符，normal将空白符全部压缩、pre类似<pre>标签处理、nowrap定义只遇到<br>才换行
+line-height 设置文本所在行的行高，精确值或百分比
+
+
+边缘
+元素边界的矩形区域的特性，由top、right、bottom和left组成，每个部分都有相应的margin、padding、width、color和sytle属性
+margin类，设置边界元素和其它元素的空隙大小
+margin-top 
+margin-right 
+margin-bottom 
+margin-left 
+margin 上右下左的顺序
+
+填充
+padding类，设置元素边界与内部内容的空隙大小
+padding-top 
+padding-right 
+padding-bottom 
+padding-left 
+padding 
+
+width类，设置元素边框的宽度，thin | medium | thick | <长度> 
+border-top-width 
+border-right-width 
+border-bottom-width 
+border-left-width 
+border-width用一到四个值来设置元素的边界，值是一个关键字或长度。不允许使用负值长度。如果四个值都给出了，它们分别应用于上、右、下和左边框的式样。如果给出一个值，它将被运用到各边上。如果两个或三个值给出了，省略了的值与对边相等。 
+
+颜色属性
+color类，设置元素边框的颜色
+border-top-color 
+border-right-color 
+border-bottom-color 
+border-left-color 
+border-color
+
+
+style类，设置元素边框的样式none无 | dotted点线 | dashed虚线 | solid实线 | double双线 | groove凹槽 | ridge凸槽 | inset凹边 | outset凸边，等 
+样式属性详解
+border-top-style 
+border-right-style 
+border-bottom-style 
+border-left-style 
+border-style
+按边框类型，宽度、样式和颜色的缩写
+border-top 
+border-right
+border-bottom 
+border-left 
+border 
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+table {
+	width: 80%;
+	border: 1px solid #000000;
+	margin: auto;
+	text-align: center;
+	border-collapse:collapse;
+	font-size: 9pt;
+}
+caption {
+	font-size: 25px;
+	font-family: "ºÚÌå";
+	padding-bottom: 30px;
+}
+th {
+	background-color: #993300;
+	color: #FFFFFF;
+	padding: 5px;
+	font-size: 18px;
+	font-family: "ºÚÌå";
+	border: 1px solid #000000;
+}
+td {
+	border: 1px solid #000000;
+}.hui {
+	background-color: #CCCCCC;
+}
+.you {
+	text-align: right;
+	font-size: 11pt;
+}
+tr:hover {
+	background-color: #FFCC33;
+}
