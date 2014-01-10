@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>盒模型示例</title>
+        
+        <style type="text/css">
+            /* 给每个盒子设置背景色、边框、大小、内部填充、外部间距 */
+            #one{
+                /*背景*/
+                /* rgb 三原色设置方法 */
+                /* 数字越小，颜色越深 */
+                background-color:rgb(127,190,216);
+                
+                /* 边框样式设置，按照上、右、下、左顺时针方向 */
+                border-top:solid 10px yellow;  /*边框*/
+                border-right:solid 10px black;
+                border-bottom:solid 10px blue;
+                border-left:solid 10px green;
+                width:200px;                   /*宽高*/
+                height:200px;
+                /* 盒子内部，垫一层填充的空白，内部填充的空间占整个页面的空间  */
+                padding-top:30px;
+                padding-left:20px;
+                /* 盒子外部的间距 */
+                margin-left:30px;
+                margin-top:50px;
+                margin-bottom:10px;
+                /* 相对长度单位 */
+                font-size:3ex;
+            }
+        
+            #two{
+                background-color:green;
+                /* 设置边框，简单写法 */
+                border:solid 10px;
+                width:300px;
+                height:150px;
+                /* 设置内部填充简单方法 */
+                padding:30px 0px 0px 20px;
+                
+                font-size:3em;
+            }
+        
+        #aa{
+            /* 相对长度单位 */
+            font-size:3ex;
+        }
+        
+        #bb{
+             font-size:30em;
+        }
+        
+        </style>
+        
+    </head>
+    <body>
+        
+        <!-- 创建一个盒子 -->
+        <!-- 默认div 是独占一整行，是矩形，是透明的 -->
+        <div id="one">x</div>
+    
+        <!-- 创建第二个盒子 -->
+        <div id="two">M</div>
+    
+    x<span id="aa">x</span><br />
+    M<span id="bb">M</span>
+    
+    </body>
+</html>
