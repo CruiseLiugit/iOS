@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>DIV 定位</title>
+        <style type="text/css">
+            /* 默认情况下，div 独占一行 */
+            #d1{
+                width:200px;
+                height:100px;
+                background-color:#FFAA00;
+            }
+            #d2{
+                background-color:#AA22FF;
+            }
+        
+            /* 设置三个盒子绝对定位 */
+            #d3,#d4,#d5,#d6,#d7,#d8{
+                width:200px;
+                height:200px;
+                border:solid 1px red;
+            }
+        
+            #d3{
+                /* 对这个块进行绝对定位，从文档流中拿出 */
+                /* 绝对定位原点：屏幕的左上角 */
+                position:absolute;  /* 当前层会与下面层重叠 */
+                left:50px;         /* 对当前层进行移动，左右移动  */
+                top:300px;         /* 对当前层进行上下移动 */
+                background-color:#ffddee;
+                
+               /* z-index:10; */
+            }
+        
+            /* 相对自己定位 */
+            #d5{
+                position:relative;  /* 原来的位置不变 */
+                top:10px;
+                left:10px;
+                
+                background-color:#aaddee;
+            }
+        
+        
+            /* 固定在浏览器上的定位 */
+            #d7{
+                /* 相对于屏幕原点进行定位，固定在浏览器上位置不变，永远浮在这里 */
+                position:fixed;
+                left:5px;
+                top:5px;
+                
+                background-color:#bbaaff;
+                
+                /*z-index:20;*/
+            }
+        
+            /* 浮动定位 */
+            #main{
+                width:500px;
+                margin:0px auto; /* 左右两边auto 居中 */
+                border:solid 1px #22aaff;
+            }
+        
+            #d9{
+                width:200px;
+                height:300px;
+                background-color:#aaeeff;
+                /* 浮动起来后，不占原来的空间，left 说明 D9 的左边与 main 块左边能够固定 */
+                float:left;
+            }
+        
+        </style>
+    </head>
+    
+    <body>
+        <h1>默认文档流中的定位---独占一行</h1>
+        <div id="d1">第一个DIV</div>
+        <div id="d2">第二个<p>divasdfkasdjfkdfkjashdfkjasdfk;ahsdfk;jasdl;kfjals;kdjflk;asdjfkl;asjdflkasjdfkasjdl;kfjasd;lkfjas;lkfjasl;kfajsfkjashfkjasdhfjkashfjlashfjklashfasldjkfhasdlfkjashflkajdshfaskljjashdljfhalskjhfdkljashflkjasfhalskjfhalsdkjfhasdkfjhalkjdhfalksjdhflkasjhdfjkashflkjashdflashdfljkahsdlfjkhaslkjflhaskjfhadlkhaljhfaslkj</p>
+        </div>
+        
+        
+        <h1>把盒子相对屏幕原点进行，盒子不在文档流中---绝对定位</h1>
+        <div id="d3">D3</div>
+        <div id="d4">D4</div>
+        
+        <h1>盒子相对自己原来的位置进行定位，盒子还在文档流中---相对定位</h1>
+        
+        <div id="d5">D5</div>
+        <div id="d6">D6</div>
+        
+        
+        <h1>根据浏览器窗口定位---固定定位</h1>
+        <div id="d7">D7</div>
+        <div id="d8">D8</div>
+        
+        
+        <h1>在指定范围内，左右浮动---浮动定位</h1>
+        <div id="main">
+            <div id="d9">D9</div>
+        </div>
+        
+        
+        
+        <h1>浮动小例子</h1>
+        <style type="text/css">
+            /* 设置浮动定位的外框 */
+            #out{
+                width:300px;
+                height:300px;
+                border:solid 1px green;
+                position:relative;
+                top:300px;
+                left:300px;
+            }
+            /* 设置内部的几个框 */
+            #A{
+                width:100px;
+                height:200px;
+                background-color:#aa55ff;
+            }
+            #B{
+                width:200px;
+                height:100px;
+                background-color:#bb11ff;
+            }
+            #C{
+            width:100px;
+            height:100px;
+            background-color:#cc00ff;
+            }
+            #D{
+            width:100px;
+            height:200px;
+            background-color:#dd8844;
+            }
+            #E{
+            width:200px;
+            height:100px;
+            background-color:#ee9922;
+            }
+            /* 对内部块进行定位，选择浮动， */
+            #A,#B,#C,#D,#E{
+                float:left;
+            }
+        
+            #D,#E{
+                float:right;
+            }
+        </style>
+
+        <div id="out">
+            <div id="A">A</div>
+            <div id="B">B</div>
+            <div id="C">C</div>
+            <div id="D">D</div>
+            <div id="E">E</div>
+        </div>
+        
+        
+        
+        
+        
+        <br />
+        
+        
+        
+        
+    </body>
+</html>

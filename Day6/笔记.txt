@@ -1,0 +1,104 @@
+目标
+      DIV 定位
+      掌握导航菜单
+      掌握列表样式设置 ul li ol dl
+      掌握字体样式设置
+      掌握图片样式
+      掌握链接样式
+
+
+1、DIV 定位
+    CSS 控制整个网页样式，是通过对 DIV 块进行定位来完成的。
+    默认情况下，一个 DIV 单独一行---文档流(根据人的阅读习惯，一般文档都是从第一行开始，根据内容需要，进行换行。一行挨着一行的习惯，像河流一样，中间没有中断的情况。)
+    在文档流(整个 HTML 网页代码中)内，每个 DIV 都独占一行
+
+绝对定位
+position static/absolute/relative
+position absolute通过top right bottom left进行调整
+如果一个对象被设置了绝对定位,它将从本质上与其他对象分离出来.它的定位模式不会影响到其他对象.也就是分层显示.
+
+position 属性值的含义：
+
+static
+    元素框正常生成。块级元素生成一个矩形框，作为文档流的一部分，行内元素则会创建一个或多个行框，置于其父元素中。
+relative
+    元素框偏移某个距离。元素仍保持其未定位前的形状，它原本所占的空间仍保留。
+absolute
+    元素框从文档流完全删除，并相对于其包含块定位。包含块可能是文档中的另一个元素或者是初始包含块。元素原先在正常文档流中所占的空间会关闭，就好像元素原来不存在一样。元素定位后生成一个块级框，而不论原来它在正常流中生成何种类型的框。
+fixed
+    元素框的表现类似于将 position 设置为 absolute，不过其包含块是视窗本身。
+
+提示：相对定位实际上被看作普通流定位模型的一部分，因为元素的位置相对于它在普通流中的位置。
+
+
+float 浮动定位
+
+
+例子
+高度自适应
+直接设置高度为100%对于大多数浏览器无效.一个对象的高度是否可以使用百分比显示,取决于对象的父级对象.
+IE中认为父级为body
+标准浏览器认为为HTML
+例子
+
+
+2、掌握导航菜单
+
+
+
+3、掌握列表样式设置 ul li ol dl
+
+ul.disc {list-style-type: disc;}      默认小黑点
+ul.circle {list-style-type: circle;}  空心圆点
+ul.square {list-style-type: square;}   方块黑点
+ul.none {list-style-type: none;}       没有圆点
+
+
+ol.decimal {list-style-type: decimal}    默认 1 2 3 数字
+ol.lroman {list-style-type: lower-roman} 小写罗马数字
+ol.uroman {list-style-type: upper-roman} 大写罗马数字
+ol.lalpha {list-style-type: lower-alpha} 小写英文字母
+ol.ualpha {list-style-type: upper-alpha} 大写英文字母
+
+ul{
+ list-style-image: url(arrow.gif);    带小图标
+}
+
+
+ul{
+	display:inline;         把列表由纵向变为横向
+	margin-left:5px;
+	padding:0px;
+}
+ul li{
+	display:inline;
+}
+
+
+
+
+ul{
+	width:200px;	
+	list-style-type:none;
+	padding-left:30px;
+}
+ul li{
+	margin:5px;
+	text-indent: -30px;        移动列表中顶端对齐的位置
+}
+
+      
+4、掌握字体样式设置
+
+5、掌握图片样式
+      
+6、掌握链接样式
+
+
+
+
+
+
+
+
+
