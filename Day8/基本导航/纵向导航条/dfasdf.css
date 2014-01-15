@@ -1,0 +1,35 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	border:0px;
+}
+#happy {
+	width: 100px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-right-color: #CCCCCC;
+	border-bottom-color: #CCCCCC;
+	border-left-color: #CCCCCC;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+#happy h1 {
+	padding: 4px;
+	font-size: 12px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #CCCCCC;
+	border-right-color: #CCCCCC;
+	border-bottom-color: #CCCCCC;
+	border-left-color: #CCCCCC;
+	background-color: #999999;
+}
+#happy h2 {
+	font-size: 12px;
+	font-weight: normal;
+	padding: 4px;
+}

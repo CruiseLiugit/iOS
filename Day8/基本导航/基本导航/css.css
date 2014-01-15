@@ -1,0 +1,16 @@
+#happy li {
+	float: left;
+}
+#happy li a {
+	color: #000000;
+	text-decoration: none;
+	padding-top: 5px;
+	display: block;
+	width: 97px;
+	height: 22px;
+	text-align: center;
+	background-color: #33FFFF;
+	margin-left: 2px;
+	list-style-type: none;
+}
+

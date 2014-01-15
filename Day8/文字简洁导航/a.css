@@ -1,0 +1,37 @@
+
+ul {
+	list-style-type: none;
+	margin: 0px;
+	width: 400px;
+	height: 60px;
+	background-image: url(neteaselogo.gif);
+	background-repeat: no-repeat;
+	background-position: 20px center;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 160px;
+	border: 1px solid #000000;
+}
+li {
+	float: left;
+}
+a {
+	display: block;
+	height: 30px;
+	width: 50px;
+	text-align: center;
+	text-decoration: none;
+	color: #000000;
+	line-height: 30px;
+	background-image: url(bx.jpg);
+	background-repeat: no-repeat;
+	background-position: right;
+}
+a:hover {
+	font-weight: bold;
+	text-decoration: underline;
+}
+.mei {
+	background-image: none;
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>表单实例</title>
+        <style type="text/css">
+            /* 1 确定页面布局-单行单列 */
+            #layout{
+                width:800px;
+                /* 自动居中，外部间距，上、右、下、左。可以简写为上下一样、左右一样
+                margin:10px 5px 10px 5px;
+                margin:10px 5px;
+                 */
+                margin:0px auto;
+                background-color:#ffaacc;
+            }
+            /* 2 修饰主标题，设字体、设颜色、设填充、设边框*/
+            h1{
+                color: #666;   /*文字颜色*/
+                font-family: Georgia, "Times New Roman", Times, serif;
+                font-weight: normal;
+                letter-spacing: -2px;
+                font-size: 40px;
+                padding-bottom:15px;
+                border-bottom:2px solid #8FC629;
+                margin-bottom:10px;
+                text-align:left;
+            }
+            h2{
+                /* 字体、填充、颜色 */
+                color:#8FC629;
+                font-size:18px;
+                font-weigth:normal;
+                padding:10px;
+                text-align:left;
+            }
+        /* 3 设置表格样式 */
+        table {
+            width:80%;
+            font-size:12px;
+            color:#333333;
+            /* 让边框变成一条线*/
+            border-collapse:collapse;
+            text-align:left;
+        }
+        /* 设置表格第一列的字体 */
+        .c1,.c2{
+            border-top:1px solid #bbb;
+            border-bottom:1px solid #bbb;
+            padding:10px;
+        }
+        .c1{
+            text-align:left;
+            color:#666666;
+        }
+        /*  设置下拉菜单，整体背景颜色 */
+        select option{
+            background-color:#cef0d4;
+        }
+        select .l1{
+            background-color:white;
+        }
+        select .l2 {
+            background-color: #40854c;
+            color: white;
+        }
+        /* 设置输入框样式 */
+        .textInput{
+            /* 设边框、尺寸 */
+            width:150px;
+            height:20px;
+            border:1px solid #58805f;        }
+        /* 按钮 */
+        .bt{
+            width:100px;
+            height:25px;
+            margin-top:20px;
+            margin-left:186px;
+            font-size:12px;
+            font-weight:bold;
+            border:2px solid #abd8b3;
+            border-right-color:#58805f;
+            border-bottom-color:#58805f;
+            background-color:#a6d3ae;
+            color:white;
+        }
+        </style>
+    
+    </head>
+    <body>
+        <!-- 1 确定页面整体布局-单行单列 -->
+        <div id="layout">
+            <h1>几个有关Web标准的问题</h1>
+            <h2>帮助我们更好的了解您对Web标准网页设计的想法与看法</h2>
+            
+            <!-- 2 设置表单内部样式 -->
+            <form name="form1" id="form1" method="post" action="">
+               <!-- 3 创建一个 6行2列的表格 -->
+               <table>
+                   <tr >
+                       <td class="c1">您是否曾使用表格式布局？</td>
+                       <td class="c2">
+                       是<input type="radio" name="ok" />
+                       否<input type="radio" name="ok" />
+                       </td></tr>
+                   <tr >
+                       <td class="c1">
+                       您所从事的行业：
+                       </td>
+                       <td  class="c2">
+                       <select name="job">
+                           <option>请选择你的行业</option>
+                           <option class="l1">IT行业</option>
+                           <option>程序员</option>
+                           <option>设计师</option>
+                           <option class="l2">传统行业</option>
+                           <option>服务业</option>
+                       </select>
+                       </td></tr>
+                   <tr >
+                       <td  class="c1">请留下您的姓名：</td>
+                       <td  class="c2">
+                           <input type="text"  class="textInput"/>
+                       </td></tr>
+               </table>
+               <input type="button" class="bt" value="提交"  />
+            </form>
+        </div>
+    </body>
+</html>
