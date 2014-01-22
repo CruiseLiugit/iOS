@@ -1,0 +1,218 @@
+<!-- 声明当前文档中使用的 HTML 语言版本 -->
+<!DOCTYPE html>
+
+<!-- 整个网页的根标签 root -->
+<html>
+    <!-- 告知浏览器搜索引擎信息的代码 -->
+    <head>
+        <meta charset="UTF-8" />
+        
+        <title>演示菜单如何制作</title>
+        
+        <style type="text/css">
+            
+            /* ------------------------------- */
+            /* 显示菜单的区域 */
+            #menu2{
+                width:70%;
+                height:45px;
+                background-color:#66ffff;
+            }
+            
+            
+            #floatmenu li{
+                float:left;
+                width:97px;
+                height:22px;
+                border:solid 1px #11eeff;
+                padding:10px;
+                
+                list-style-type:none;
+            }
+            /* a 标签才有四种状态，可以进行CSS修饰
+                正常状态，默认没有点击            :linked
+                悬停状态，鼠标移动上去，没有点击    :hover
+                点击中状态，鼠标左键按下
+                点击后状态，鼠标左键弹起
+             */
+        /* 鼠标移动到链接上 */
+            #floatmenu li a:hover {
+                color: #FFFFFF;
+                background-color: #CCCCCC;
+            }
+        /* 未访问的链接 */
+        #floatmenu li a:link {color: #FF0000}
+        /* 已访问的链接 */
+        #floatmenu li a:visited {color: #00FF00}
+        /* 选定的链接 */
+        #floatmenu li a:active {color: #0000FF}
+        
+        /* 高亮显示当前正在读的链接 */
+        .read{
+            background-color:green;
+            color:red;
+        }
+        
+        /* 清除上一个内容中的 CSS 效果，不影响下面的内容 */
+        #clear{
+            clear: both;
+        }
+        
+        
+        /* ------------------------------- */
+        /* 第二种制作横向菜单的方法  */
+        #default{
+            display:inline;
+        }
+        
+        #default li{
+            width:97px;
+            height:22px;
+            border:solid 1px #11eeff;
+            padding:10px;
+            
+            display:inline;
+        }
+        
+        /* ------------------------------- */
+        /* 使用CSS控制多级菜单 */
+        /* 1、确定菜单总的显示范围，外框 */
+        #menu3{
+            width:70%;
+            height:45px;
+            background-color:#66ffff;
+        }
+        /* 2、确定菜单横向显示 */
+        #menu3 ul {
+            list-style-type: none;   /* 去掉小黑点 */
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        #menu3 ul li{
+            float:left;
+        }
+        /* 3、给一级菜单添加外框、背景色、填充间距 */
+        #menu3 ul li{
+            width:97px;
+            height:22px;
+            border:solid 1px #11eeff;
+            padding:10px;
+        }
+        
+        /* 4、隐藏二级菜单 */
+        #menu3 ul li li {
+            display: none;
+        }
+        
+        
+        /* 5、鼠标移动到一级菜单上，显示二级菜单 */
+        /*  block 方块，display:block 让内容在网页中有一个显示的块 */
+        #menu3 ul li:hover li {
+            display: block;
+            clear:both;  /* 清楚之前 css 效果的影响 */
+        }
+        
+        /*6、鼠标选中一级菜单，显示二级菜单时，隐藏三级菜单*/
+        #menu3 ul li:hover li li{
+            display:none;
+        }
+        
+        /* 一个列表中，有三级 li 菜单，前两个被选中时，第三个显示 */
+        #menu3 ul li:hover li:hover li{
+            display:block;
+        }
+        
+        
+        /* ------------------------------- */
+        
+        /* ------------------------------- */
+        
+        /* ------------------------------- */
+        
+        /* ------------------------------- */
+        
+        </style>
+        
+    </head>
+    
+    <!-- 告知浏览器，给用户看的内容 -->
+    <body>
+        <h1>最原始的菜单</h1>
+        <ul>
+            <li>网易新闻</li>
+            <li>腾讯新闻</li>
+            <li>搜狐新闻</li>
+        </ul>
+        
+        
+        <h1>浮动定位的菜单--横向</h1>
+        <div id="menu2">
+        <ul id="floatmenu">
+            <!-- a herf 中默认链接文件名称，链接网址前加 http ,
+             target 属性设置为 "_blank"，该链接会在新窗口中打开
+             title 属性鼠标悬停时的 链接提醒
+             -->
+            <li class="read"><a href="http://www.163.com" target="_blank" title="网易">网易新闻</a></li>
+            <li><a href="http://www.qq.com" >腾讯新闻</a></li>
+            <li><a href="http://www.sohu.com">搜狐新闻</li>
+        </ul>
+        </div>
+        
+        <div id="clear"></div>
+        
+        <h1>默认横向菜单做法</h1>
+        <ul id="default">
+            <li>网易新闻</li>
+            <li>腾讯新闻</li>
+            <li>搜狐新闻</li>
+        </ul>
+        
+        <h1>带子菜单的菜单</h1>
+        <!-- 先确定一级主菜单 -->
+        <div id="menu3">
+            <ul>
+                <li>网易新闻
+                <ul>
+                    <li>国内新闻</li>
+                    <li>国际新闻</li>
+                    <li>娱乐新闻</li>
+                    <li>汽车新闻</li>
+                    <li>科技新闻
+                        <ul>
+                            <li>iPhone</li>
+                            <li>Android</li>
+                            <li>可穿戴设备</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+                <li>腾讯新闻
+                <ul>
+                    <li>国内新闻</li>
+                    <li>国际新闻</li>
+                    <li>娱乐新闻</li>
+                    <li>汽车新闻</li>
+                    <li>科技新闻</li>
+                    <li>腾讯游戏</li>
+                    <li>腾讯微信</li>
+                </ul>
+            </li>
+                <li>搜狐新闻
+                <ul>
+                    <li>国内新闻</li>
+                    <li>国际新闻</li>
+                    <li>娱乐新闻</li>
+                    <li>汽车新闻</li>
+                    <li>科技新闻</li>
+                    <li>搜狐视频</li>
+                    <li>搜狐美女</li>
+                </ul>
+            </li>
+            </ul>
+        </div>
+        
+        
+    
+    </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>CSS 调用图标</title>
+        <style type="text/css">
+             /* 设置整个网页背景颜色 */
+             body{
+                 background-color:#44aa22;
+             }
+        
+            /* 设置显示柱状图的盒子 */
+            /* id 选择器与 class 选择器区别 */
+            /* id 总是孤独的，class 总是有同伴 
+             <div id="vert" class="c1 c2 c3" >
+             */
+        #vert{
+            background-color:#ffffff;
+            /* 黄金分割比 0.628 */
+            width:377px;
+            height:241px;
+            border:3px dotted #d6d7d6;
+            background:url(graphbg.gif);
+        }
+        /* 嵌套选择器 */
+        #vert h1{
+            font-size:14px;
+            margin:10px;
+        }
+        
+        /* 设置所有的柱子 */
+        #vert ul li{
+            /*  要想重新排列，先打破原有的位置 */
+            float:left;  /* 横向 */
+            position: absolute;  /*让文档流中原有位置消失 */
+            list-style-type:none;
+            
+            /* 修饰柱子框、上中下对齐位置，左右定位 */
+            
+            background-color:#333;
+            width: 30px;
+            line-height: 40px;
+            /* 修饰文字属性 */
+            text-align: center;
+            font-weight: bold;
+            color: #fff;
+        }
+        /* 给 li 元素 重新定位 */
+        #vert ul li.c1{
+            left:50px;
+            background:url(bg.jpg);
+        }
+        #vert ul li.c2{
+            left:130px;
+            background:url(bg.jpg) no-repeat -30px 0px;
+        }
+        #vert ul li.c3{
+            left:210px;
+            background:url(bg.jpg) no-repeat -50px 0px;
+        
+        }
+        #vert ul li.c4{
+            left:290px;
+            background:url(bg.jpg) no-repeat -90px;
+        
+        }
+        
+        
+        
+        </style>
+    </head>
+    <body>
+        <br />
+        <div id="vert">
+            <h1>统计数据</h1>
+            <ul>
+                <!-- height 控制柱状图高度 -->
+                <li class="c1" style="height:150px;">30</li>
+                <li class="c2" style="height:100px;" >22</li>
+                <li class="c3" style="height:40px;">6</li>
+                <li class="c4" style="height:80px;">10</li>
+            </ul> 
+        </div> 
+        <br /> 
+        <br />
+    
+    </body>
+</html>

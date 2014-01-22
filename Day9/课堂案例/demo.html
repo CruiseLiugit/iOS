@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"  />
+        <title>CSS高级技巧</title>
+        
+        <link href="blue.css" rel="stylesheet" type="text/css" id="cssfile"/>
+        
+        <style type="text/css">
+                /* Demo 1 */
+                #demo1{
+                    background-color:#ddaaff;
+                    /* 不是div 盒子，宽高无效 */
+                    width:100px;
+                    height:60px;
+                    /* 为了看起来像盒子，添加display */
+                    display:block;
+                }
+        
+                /* demo2 */
+                span{
+                    /* 字体 */
+                    font:3em 楷体;
+                    color:red;
+                    /* 边框 */
+                    border:solid 1px #77aadd;
+                    /* 宽高 */
+                    width:300px;
+                    height:180px;
+                    display:block;
+                }
+        
+                /* demo3 */
+                a.tip{
+                    color:red;
+                    text-decoration:none; /* 去掉链接下划线 */
+                    /* position:relative; */
+                }
+                /* 隐藏 span */
+                a.tip span {display:none;}
+                
+                a.tip:hover .popbox {
+                    display:block;
+                    font-size:2ex;
+                    color:#fff;
+                    background-color:#424242;
+                    /* 定位 */
+                    position:absolute;
+                    top:500px;
+                    left:270px;
+                    width:200px;
+                }
+                
+        </style>
+    </head>
+    <body>
+        <h1>block 块</h1>
+        <a id="demo1" href="#">链接</a>
+        
+        
+        <h1>span 容器</h1>
+        <p>今天晚上看电影<span>《私人定制》</span></p>
+        
+        
+        <h1>弹出隐藏块</h1>
+        <p>目前推荐遵循的是W3C于1998年5月12日推荐<a href="#" class="tip">CSS<span class="popbox">Cascading Style Sheets 层叠样式表</span></a>
+        </p>
+        
+        
+        <h1>简单脚本调用</h1>
+        <!-- 通过按钮，鼠标点击事件，调用 脚本 -->
+        <button onclick="hello();">demo1</button> <br/>
+        <input type="button" onclick="say('刘立立');" value="demo2" /> <br />
+        
+        <button onclick="change(1);">蓝色</button><br />
+        <button onclick="change(2)">红色</button><br />
+        
+        <!-- 编写脚本代码 -->
+        <script type="text/javascript">
+            //注释格式
+            //写多行代码，按钮点击时调用，多行代码一起被调用
+            //需要编写一个函数，函数中多行代码一起执行
+            //函数中的代码，是从上往下依次执行的
+            
+            function hello(){
+                alert("hello"); //弹出框
+                alert("ahaha");
+                alert("bbbbb");
+            }
+        
+            //传参数的函数
+            function say(name){
+                alert(name);          //直接输出
+                //+ 连接两个字符串
+                alert("hello "+name); //弹出框
+            }
+        
+            //得到用户点击按钮上的颜色
+            function change(color){
+                //检查是否得到 数字
+                //alert(color);
+                //通过 id 找到对应的 html 标签,js 代码如下
+                //document.getElementById()
+                //var 关键词，用来定义变量
+                var aaa = document.getElementById("cssfile");
+                //aaa ==  <link href="blue.css" rel="stylesheet" type="text/css" id="cssfile"/>
+                //修改 link href="red.css" <---> href="blue.css"
+                //根据输入的  数字 判断
+                if(color == 2){
+                    aaa.href = "red.css";
+                }else if(color == 1){
+                    aaa.href = "blue.css"
+                }
+            }
+        
+        
+        </script>
+        
+        
+        <br /><br /><br /><br /><br /><br /><br />
+        
+        
+        
+    </body>
+</html>

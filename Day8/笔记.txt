@@ -1,0 +1,53 @@
+目标
+      掌握使用 CSS 制作菜单-纵向、横向
+      制作一个完整的界面流程
+      
+1、掌握使用 CSS 制作菜单-纵向、横向
+   在界面中，所有的菜单项目，都用无序列表制作。
+   
+   修饰列表前面的小图标：小黑圆点、方块点、空心圆点、不带点
+   list-style-type : square
+   
+   用指定图片替换小黑点，图片尺寸有要求
+   list-style-image : url(xxx.gif)    10px * 9px
+   
+   CSS 前面名称统一的，都可以连写
+   list-style : url(example.gif) square inside
+
+
+    border-top left right bottom color
+
+   
+   <!-- 声明无序,显示时，竖着排列，默认前面带小黑点 -->
+   <ul>
+        <li>网易新闻</li>
+        <li>腾讯新闻</li>
+        <li>搜狐新闻</li>
+   </ul>
+   
+   ul {list-style-type: disc}      实心圆点   默认
+   ul {list-style-type: circle}    空心圆点
+   ul {list-style-type: square}    实心方块
+   ul {list-style-type: none}      无        常用
+   
+   
+   
+   有序列表中，设置数字的样式
+   ol {list-style-type: decimal}      阿拉伯数字
+   ol {list-style-type: lower-roman}   小写罗马数字
+   ol {list-style-type: upper-roman}   大写罗马数字
+   ol {list-style-type: lower-alpha}   小写字母
+   ol {list-style-type: upper-alpha}   大写字母
+
+
+
+2、制作一个完整的界面流程
+
+
+
+
+
+
+
+
+

@@ -6,17 +6,21 @@ ul {
 	height: 60px;
 	background-image: url(neteaselogo.gif);
 	background-repeat: no-repeat;
-	background-position: 20px center;
+	background-position:20px;
 	padding-top: 10px;
 	padding-right: 10px;
 	padding-bottom: 10px;
 	padding-left: 160px;
 	border: 1px solid #000000;
 }
+
+
 li {
 	float: left;
 }
+
 a {
+    /* 让链接看起来像盒子，控制宽度高度 */
 	display: block;
 	height: 30px;
 	width: 50px;
@@ -35,3 +39,4 @@ a:hover {
 .mei {
 	background-image: none;
 }
+

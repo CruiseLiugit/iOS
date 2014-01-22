@@ -1,0 +1,33 @@
+*{
+border:0px;
+padding:0px;
+margin:0px;
+}
+#happy{
+margin:10px auto 0px auto;
+width:505px;
+height:26px;
+}
+#happy li {
+	float: left;
+	border-bottom: 2px solid #000000;
+}
+#happy li a {
+	color: #000000;
+	text-decoration: none;
+	padding-top: 5px;
+	display: block;
+	width: 97px;
+	height: 22px;
+	text-align: center;
+	background-color: #FFCCFF;
+	list-style-type: none;
+}
+#happy li a:hover {
+	color: #FFFFFF;
+	background-color: #CCCCCC;
+}
+#happy #dangqian{
+background-color:#000000;
+color:#FFFFFF;
+}
