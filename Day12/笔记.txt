@@ -1,0 +1,158 @@
+目标
+   了解 JavaScript 历史
+   了解 JavaScript 现状
+   掌握 JavaScript 知识点
+   掌握词法结构
+    
+
+1、了解 JavaScript 历史
+   网页开发三大技术：
+   (1)描述页面内容的 HTML
+   (2)描述页面样式的 CSS
+   (3)描述页面行为的 JavaScript
+
+   JavaScript 是一门高端的、动态的、弱类型的编程语言，非常适合面向对象和
+函数式的编程风格。语法来自 Java 、Scheme 、Self。
+   但是 JavaScript  与 Java 没有关系，是完全独立，完整的语言。
+
+   JavaScript 的名字和版本
+   (1)由最早的浏览器公司网景(现在的Mozilla)公司发明,但是有 Sun 公司(现在的Oracle)注册成商标；
+   (2)网景破产后，把它提交给了 ECMA(欧洲计算机制造协会)，由于商标冲突，改名为 ECMAScript；
+   (3)最近 10 年，所有浏览器都支持第 3 版 ECMAScript 标准，目前最新 ECMAScript 版本是 5
+      ES3   ES5
+   (4)W3C 组织，为 JavaScript 语言，操作 XML 专门制定了一个标准 DOM，用
+      JavaScript 语言编写实现了这个标准--DOM API 
+      如：标准 DOM ，制造一种新设备，自动做饭，分几步、做哪些菜 叫标准；
+           标准制定完毕，设备还没有被造出来。
+
+         实现 DOM API(应用程序编程接口)，用塑料、芯片、金属等把产品制造出来，跟标准规定的要求一样。
+             API 相当于 A 公司造的产品，有两个按钮，一个输出口；
+                       B 公司造的产品，只有一个按钮，提供两个输出口；
+
+         对任意的一套标准，可以有很多种实现方法。就会有很多种 API
+
+        小结：标准只可能有一个，标准的实现 API 可能有很多个。
+
+      DOM 标准有以下 API:
+      （1）JavaScript 语言编写的----JavaScript DOM API
+      （2）Java 语言编写的----------Java DOM API 
+      （3）C 语言编写的 ------------C DOM API
+
+    JSON.org 标准
+ 
+
+2、了解 JavaScript 现状
+  目前 JavaScript 语言具有非常完善的 API 、能够开发基于浏览器的复杂程序。
+需要了解如下内容
+  (1)JavaScript 语言核心--ECMAScript
+  (2)客户端 JavaScript----DOM API
+  (3)jQuery类库
+  (4)JavaScript API
+ 
+
+3、掌握 JavaScript 知识点
+  我们需要掌握 JavaScript 的基础，编程概念，能够实现如下功能：
+  (1)类型、值、变量、表达式、运算符
+  (2)语句
+  (3)对象
+  (4)函数
+  (5)脚本化文档(JavaScript操作 HTML 标签)
+  (6)脚本化CSS(JavaScript操作 CSS 样式)
+  (7)事件处理机制(控制上述的操作何时发生)
+
+4、掌握词法结构
+  (1)JavaScript 用字符编码，符合 UTF-8 编码。用全世界所有的语言都可以写 JavaScript
+  (2)JavaScript 区分大小写  hello  Hello  hEllo ,一般建议小写
+  (3)JavaScript 中要给每个具体值，起一个名字---叫标示符(标签)
+     使用关键字定义标示符  var  xxx(标示符，任意定义)
+     标示符对应的值，会在程序中变化，又叫-----变量 (标示符名称不变，值可以变化)
+     标示符不能任意指定，规定如下：
+       只能是键盘上存在的字符 0-9 a-z  A-Z !@#$%^&*(){}[]_-+=~ ;
+       区分大小写;
+       第一个字母，只能是 字母、_、$ 这三种，不能以数字或其他特殊字符开头;
+       自定义标示符，不能与关键字、保留字重名;  
+       标示符一定要有意义，不能随便起;
+
+        目前正在使用的标示符----关键字
+	break delete function return typeof 
+	case do if switch var 
+	catch else in this void 
+	continue false instanceof throw while 
+	debugger finally new true with 
+	default for null try  
+
+        将来可能使用的标示符----保留字
+        abstract boolean break byte
+	case catch char class const continue
+	debugger default delete do double
+	else enum export extends
+	false final finally float for function  ….
+
+      下面哪些是合法的标示符：
+        -ysys      错
+        num        
+        877ks      错
+        $_hjhsf    
+
+
+一堆苹果，贴上不同的标签，可以卖不同的价格
+
+xxx is not defined ，说明这个 xxx 只能作为  "值--具体存在的内容"。不能单独用
+   (4)JavaScript 注释，写在代码中，给程序员看，但是浏览器会忽略的文字
+      单行注释  //一次给一行代码进行注释
+      多行注释  /*  
+                   给多行代码进行注释
+               */
+   (5)JavaScript 表达式，使用计算的符号，把 名字 或 值 连接在一起运行，
+      得到一个结果
+      //一般一个值，都要起名
+      var number1 = 12
+      var number2 = 23
+
+      //求数字的和
+      //number1 + number2 表达式
+      var sum  = number1 + number2 + 100 - (10*10)
+      console.log(sum)
+
+      number1 > number2
+
+      var sum  = number1 + number2 +   //输出 NaN(Not a Number)
+
+ 
+   判断一个闰年
+   if(表达式){
+      //满足条件，执行这里
+   }else{
+      //不满足条件，执行这里
+
+   }
+
+
+12           //定义一个具体的数字值
+"你好"        //定义一个具体的字符串(一句话)
+console.log("你好!!") //专门输出一句话
+
+
+   
+补充：
+JavaScript 开发调试工具---FireFox  FireBug
+调试常用函数 
+(1)console.log()     输出内容到 控制台(consloe)
+(2)alert()           输出内容到 浏览器窗口
+
+console.log("hello")
+alert("hello")
+
+
+
+JavaScript Demo
+http://www.cnblogs.com/zhuqil/archive/2010/10/26/1861773.html
+
+
+作业:
+http://wenku.baidu.com/link?url=Tx2_3_pCoBwJWykTagHfZHkSE9aGBEH3EyI5PiSTHXPTunR0kHLnJA_z4i9WbHM3JKg5Qw_IOsIeSCVmYjPR_HgtJr97f01FrH5MiRaHiQG
+
+
+
+
+

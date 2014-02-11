@@ -1,0 +1,68 @@
+奥数6、
+用代码编写，步骤
+1、分析(关键的名词)
+2、组合(得出表达式、判断条件等)
+3、调用(在合适的地方，调用已经写好的代码)
+  var num = 10;      //前面写好
+  ……                 
+  console.log(num)   //这里调用
+
+
+1、分析：找关键词
+   男生、女生、一批树、
+   var  tree_number = ?   //树的总数 
+   var  boy_number = ?    //男生数量
+   var  girl_number = ?   //女生数量
+   var  result_num  = ?   //结果
+
+2、组合：得出表达式
+   (boy_number + girl_number) * 6 = tree_number;
+   girl_number * 10 = tree_number;
+   boy_number  *  ? = tree_number;
+
+    
+   (boy_number + girl_number) * 6  =  girl_number * 10
+   6 * b + 6 * g = 10 * g
+   6 * b = 4 * g;
+   b = 2/3 * g;       g = 3/2 *b;
+
+   girl_number * 10 = boy_number  *  ? 
+   10 * g = ? * b;  //把 g 替换成 b
+   10 * 3/2 * b = ? * b;  //两边都有 b ，约掉
+   10 * 3/2 = ?   //求出 15   
+3、得到代码
+   var  tree_number = 0;   //树的总数 
+   var  boy_number = 0;    //男生数量
+   var  girl_number = 0;   //女生数量
+   var  result_num  = 0;   //结果
+   
+   //结论
+   girl_number = 3/2 * boy_number;
+   result_num = 10 * gril_number / boy_number ;
+   //输出结果
+   console.log(result_num);
+
+//求 0+1+2+3+4+….+1000
+var sum = 0;    //定义变量，赋初始值
+for(var i = 1;i<= 1000;i++)
+{
+	sum = sum + i;
+}
+
+console.log("0-1000 的和为 :"+sum);
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+
