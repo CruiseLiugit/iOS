@@ -1,0 +1,308 @@
+目标
+    表达式语句
+    复合语句和空语句
+    声明语句--var   function
+    条件语句
+    循环语句
+    跳转语句
+
+
+1、表达式语句
+   表达式是 JavaScript 的短语，用于计算出一个值；
+   语句就是整个 JavaScript 句子，用于执行使某件事情发生。
+
+   比如，去公司面试，要先做笔试题、然后面试、复试。
+    这里面每个步骤都是一个 表达式，都能得出一个具体的结果；
+    三个步骤合在一起，才能完成一个完整的面试，中间可能有不同的判断条件(笔试不通过，不能面试),三个步骤全部完成，才能是成功的面试。
+
+   JavaScript 程序是一系列“可执行”语句的集合。默认情况下，按照编写顺序执行。
+但是可以通过 一定的条件，改变语句执行的顺序。
+    
+   流程控制语句:
+    条件语句：根据表达式的值，判断是否执行或跳过某些语句，如 if  switch
+            根据条件进行选择，二“选一”、多“选一”
+    循环语句：可以重复执行语句，如  for  while
+            在一定条件内，重复做某件“相同”的事情
+    跳转语句：可以让解释器 跳转到程序的其他部分继续执行，如 break   return  throw
+            不做了，可以怎么办            
+
+   赋值：  var gree = "hello";
+          i *= 3;
+   调用函数:  alert(gree);
+            console.log(i);
+            Math.abs(i);
+
+2、复合语句和空语句
+   可以使用  “逗号”  把多个表达式链接在一起，形成一个表达式。  
+       var   a=10,b=100;
+
+   JavaScript  中，用 花括号把多条语句联合在一起  叫复合语句
+   
+   //多条语句在一起叫复合语句-----代码块
+   //代码块中所有代码一起执行,代码块是一个整体
+   {    
+       //一行代码，叫一条语句
+       //= 后面的叫表达式
+	var x = Math.PI;
+        var cx = Math.cos(x);
+        console.log("cos(pi) ="+cx);
+   }
+
+   上面的叫语句块，可以在 JavaScript 语句任何地方使用。需要注意
+   (1)语句块结尾不需要 分号   };
+   (2)语句块的行都有缩进
+   (3)javaScript 中没有块级作用域，在语句块中声明的变量不是语句块“私有的”。
+在代码块中，定义的所有变量，在程序 “任何地方”都可以使用  
+console.log(then);
+
+{
+   var   then = new Date(2014,0,1)  //2014年1月1日
+   var   later = new Date(2014,0,1,17,10,30) //设置了时分秒
+   var   now = new Date()   //当前时间
+   var   between = now - then   //计算时间间隔的毫秒数
+   
+   console.log(later) 
+   console.log(later.getFullYear())   //=>2014
+}
+
+//变量可以重复定义
+var   then = new Date(2012,0,1)
+
+console.log(then);
+
+   -------------------
+   允许包含 0 条语句的，叫空语句
+   ;
+
+   用处
+    //给一个数组中所有赋值为 0
+    for(var i=0;i<a.length ;i++){
+        a[i]=0;
+        //这里什么都不做
+    }
+   
+    for(var i=0;i<a.length ;a[i++]=0){
+        //这里什么都不做
+    }
+   
+    for(var i=0;i<a.length ;a[i++]=0) /*这里有表达式，但什么都不做*/; 
+
+3、声明语句--var   function
+   var  语句用于声明一个或多个变量
+   (1)var 出现在函数内，定义的一个局部变量，作用域就着函数内
+   (2)var 出现在代码最顶部，声明的一个全局变量，在整个 js 程序中都有效
+   (3)var 定义的变量，没有赋值，那么变量的值为  undefined
+   (4)如果函数内外，都定义了同同样的变量，变量的声明会被提前，但是赋值却是在函数内部，之前变量值为 undefined
+   (5)多次声明同一个变量是无所谓的
+
+   function 用于定义函数
+   例如
+     var f = function(x){return x+1;}    //将表达式赋值给一个变量
+     
+   函数声明语句语法如下
+      function  函数名([参数1,参数2,参数3,…]){
+           函数内容
+      }
+
+   查询天气、路线、火车票等手机软件，都能够实现某些特定的功能。类似于函数的概念
+   函数的基本组成：
+   (1)函数的 身份标记---function
+   (2)函数的 名字------可以变化，但是方便记忆的名字
+   (3)函数的 输入------()
+   (4)函数的 主体，代码块内容---{}
+   (5)函数的返回值-----不返回、手动返回结果  return xx;
+    
+////////////////////////////////////////
+   求三个数中最大的一个数字
+   function max_number(num1,num2,num3,num4){
+       //判断三个数字哪个最大，交换
+       //1 定义一个变量，存储每次比较的较大值
+       var  max = 0;
+
+       //2 用 max  与  num1 比较，看哪个大，把大的值存入 max
+       //3 用 max  与  num2 比较，看哪个大，把大的值存入 max
+       //4 用 max  与  num3 比较，看哪个大，把大的值存入 max
+
+       //5 返回比较后的最大值结果
+       return max;
+   }
+
+   console.log(max_number(20,14,40));
+////////////////////////////////////////
+
+   (1)函数要声明的名称，一般用标示符表示
+   (2)函数要带参数列表，参数列表中参数个数根据需要添加， 
+   (3)函数内容用 花括号 ，有多条表达式语句组成
+   (4)函数可以嵌套在其他函数中
+   (5)函数不能嵌套在 if  while  for 等语句中
+    
+4、条件语句
+   
+   (1)if(逻辑表达式，返回只能是 true  false){}   //二选一
+
+   (2)if(){}else{}   //二选一
+   (3)if(){
+          if(){
+
+          }
+      }else{}
+   (4)if(){}else if(){}
+    判断多个数字的大小
+    var num1 = 100;
+    var num2 = 13;
+    if(num1 > num2){
+       console.log("num1 大");
+    }
+
+    if(num1 > num2){
+       console.log("num1 大");
+    }else{
+       console.log("num2 大");
+    }
+
+    if(num1 > num2){
+       console.log("num1 大");
+       if(num1 == 10){
+          console.log("num1 = 10");
+       }
+
+    }else{
+       console.log("num2 大");
+    }
+
+    
+   (5)对“数字”条件进行多选一
+    switch(数字){
+        case 1:
+        {
+            //代码块
+        }
+         break;
+        case 2:
+        {
+            //代码块
+        }
+         break;
+        …
+        default:
+        {}
+        break;
+      }
+
+    //多选，如果你有 10 块，吃一碗面，20 块吃米饭，50 块吃麦当劳，100吃火锅
+    var money = 50;
+    switch(money){
+       case 10:{
+           console.log("一碗鸭腿面");
+       }    
+       break;   
+       case 20:{
+           console.log("一份煲仔饭");
+       }
+       break;
+       case 50:{
+           console.log("一份肯德基全家桶");
+       }
+       break;
+       case 100:{
+           console.log("一次火锅自助餐");
+       } 
+       break;
+       default:{
+          console.log("一块饼干");
+       }
+          break; //默认情况
+       //console.log("这里代码无效");
+    }
+
+
+
+5、循环语句
+
+   (1)while
+   //打印 0-9 之间的数字
+   var num =0;
+   //while 使用 true/false 作为循环结束的判断条件
+   //满足执行循环内容，不满足不执行循环内容
+   //先判断，后执行
+   while(num<10){
+      console.log(num); 
+   }
+
+   while(10>0){
+      console.log("hahaha");
+   }
+
+
+   (2)for
+   (3)do{}while();
+    //打印 0-9 之间的数字
+     var num =0;
+    //先执行，后判断，是否继续执行
+    do{
+       console.log(num); 
+    }while(num<10);
+
+
+   (4)for/in
+       //for 循环，必须指定 循环的索引(类似与手表的发条)
+       //循环初始值、循环的最大值、循环的增长量
+       for(var i=0;i<10;i++){
+            console.log(i);
+       }
+
+        //循环数组时使用
+        for(var p in a)
+            console.log(a[p]);
+
+    
+6、跳转语句
+
+   (1)break
+   (2)continue
+   (3)return
+   (4)throw
+      function  f1(x){
+         //如果输入参数非法，抛出一个异常
+         if(x<0) throw  new Error("x 不能为负数");
+         //否则，计算出一个值，并正常返回
+         for(var f=1;x>1;f*=x,x--)  /* 空语句 */ ;
+
+          return f;
+      }       
+
+   (5)try/catch/finally
+       try{
+           //要求用户输入一个数字
+           var n = Number(prompt("请输入一个正整数",""));
+           //假设输入合法，计算阶乘
+           var f = f1(n);
+           //显示结果
+           alert(n + "!=" f);
+       }
+       catch(ex){
+	   //如果输入不合法，将执行这里的逻辑
+           alert(ex);  //输出错误原因	
+       }
+
+
+
+作业：
+1、 求四个数中最大的一个数字
+2、参考下列代码，编写简单的登陆验证
+#include <iostream>using namespace std;int main(){int password  = 0;	cout << "请输入密码 :";	cin >> password;	if( password = 123456 )	{		cout << "输入正确，可以进行下面的操作." << endl;	}	else	{		cout << "输入错误，程序即将退出." << endl;	}	return 0;}
+
+3、写一个程序，定义两个整数a和b，并判断a是否能被b整除，输出判断结果。
+
+4、写一个程序，定义两个数字，判断这两个数字的乘积是否大于等于5000，如果大于则告诉用户大于5000，如果相等则告诉用户等于5000，否则告诉用户小于5000。
+
+5、任意一个字符，判断它到底是哪种字符：数字，小写字母，大写字母，其他字符。
+   var nn = ;    
+   if(nn>=0 && nn<=9){
+
+   }
+   if(nn >='a' && nn <='z')
+
+
+
+    

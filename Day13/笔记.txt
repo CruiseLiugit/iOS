@@ -50,6 +50,8 @@
       \r           回车
       \"           双引号
       \\            \
+
+      //全世界所有的书面文字，都可以作为字符串的内容
       console.log("hello\t上海");
       console.log("hello\n北京");
       console.log("hello\"广州\"");
@@ -60,15 +62,25 @@
    布尔值：表示 两种状态，真/假   开/关  对/错  保留字 true  false
    
    null 和 undefined:都表示“空值” “未定义” 建议多使用 null 
+     都表示什么都没有，
+     情人节送女朋友礼物：
+     有一个盒子，但是里面没有东西-----null
+     如果连盒子都没有，更不用说里面的内容-------------undefined
+
+    var a ;
+    var b =10;
+    console.log(a+b);  -> null+10
+
 
 
    类型转换：如数字转字符、字符转数字
     10+"object"  //=>"10 object" 数字转字符串
-    "7"+"4"      //=>28   字符串转数字再计算
+    "7"+"4"      //=>74   字符串转数字再计算
     var n = 1 - "x"  //=>NaN   "x"无法转为数字
-
-    
-   
+    (1)如果有字符串，所有的自动先转换为字符串，结果是两个字符串合并为一个字符串
+    (2)如果两个都是数字，全部转换为小数，再进行计算
+    (3)如果无法转换，报错
+        
 
     变量声明： var 标示符名称
        变量作用区域{}
@@ -89,6 +101,8 @@
    console.log(n1 + n2)
    console.log(n1 / n2)
    console.log(n1 % n2)
+   判断整除、判断奇数偶数
+   
 	
    
    复杂运算，通过函数实现
@@ -150,12 +164,28 @@
    var   now = new Date()   //当前时间
    var   between = now - then   //计算时间间隔的毫秒数
    
+   //通过一定的方法，取出对象中的某些零件，组成部分
    later.getFullYear()   //=>2014
    later.getMonth()      //=>0     月份从 0 开始计算
    later.getDate()       //=>1     一月中的第几天
    later.getDay()        //=>5     星期一   0 代表星期日   5 代表星期一
    later.getHours()      //=>17:5pm
 
+   console.log(later.getfullyear());  //区分大小写的
+   TypeError: later.getfullyear is not a function
+
+   later   => Date {Wed Jan 01 2014 17:10:30 GMT+0800 (CST)}
+     {}   对象，内部存放一个对象所有的内容
+     Date 对象的名字
+     var d1 = Date {Wed Jan 01 2014 17:10:30 GMT+0800 (CST)};
+     var d2 = Date {Wed Jan 01 2014 17:10:30 GMT+0800 (CST)};
+     var d3 = Date {Wed Jan 02 2014 17:10:30 GMT+0800 (CST)};
+
+
+     一台完整的电脑，用对象来进行描述，可以通过对象，取出某个零件、让他完成功能
+     var c1 = 电脑{CPU:Intel3000;内存:8G;显示器:30寸;键盘:蓝牙;鼠标:无线;}
+     var c2 = 电脑{CPU:Intel3000;内存:8G;显示器:30寸;键盘:蓝牙;鼠标:无线;}
+     var c3 = 电脑{CPU:Intel3000;内存:16G;显示器:30寸;键盘:蓝牙;鼠标:无线;}
 
 ----------------------------------
    比较运算符
