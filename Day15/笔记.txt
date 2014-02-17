@@ -1,0 +1,214 @@
+https://github.com/CruiseLiugit/iOS
+
+目标
+    回顾
+    了解数组
+    创建数组
+    数组的读和写
+    数组的长度
+    数组元素的增加和删除
+    数组的遍历
+
+回顾
+年前：HTML、CSS 内容
+年后：javaScript 语言、基于对象的编程语言
+     JavaScript基础 变量、值、运算符、表达式、流程控制语句、函数
+     JavaScript高级 数组、对象、DOM 对象(特指浏览器中所有的内容)
+     JavaScript框架 
+
+1、了解数组
+   变量：一个变量对应一个值
+   var a=1,b=2,c=3,d=4,e=5;  //这5 个变量之间没有任何联系
+   问题：程序中需要一个变量，存放 多个值，需要新的类型？
+   答案:提供了新的数据类型，一个名字，对应多个值，多个值之间有关系
+   
+   JavaScript 中数据类型：原始类型、对象类型
+   对象类型：数组、对象
+    
+
+   值的有序集合---数组
+   每个值叫一个---元素
+   每个元素在数组中的位置，正整数表示---索引
+   
+   数组提供了一个场地，位置是有编号的，编号一般从0 开始递增，索引
+数组有一个明显的标记 
+   var arr = [1,2,3,"add",true,["a","b","c"]];
+  索引(位置编号) 0 1 2  3     4     5
+   取出位置 3 的值  console.log(arr[3])
+
+   ()||()
+   function n(){}   
+
+----------------------------
+   JavaScript 数组是一种对象类型，里面可以存放"任意类型"的值，
+同一个数组中可以存放不同类型的值。
+   数组长度是可以动态变化的，
+   数组可能是"稀疏"的，数组元素的索引不一定要连续，可以有空缺
+   数组都有字段长度属性 length
+    
+2、创建数组
+   JavaScript 中数组都是用 中括号 [] 表示，
+数组元素之间用 逗号(,) 分割
+   var  empty = [];    //没有元素的数组
+   var  primes = [2,4,1,4,5]; //5个元素的数组
+   var  misc = [1.1,true,"a"]; //3 个不同类型的元素
+   console.log(empty.length);
+ 
+   
+  数组中的值不一定是 固定的值，可以是表达式，或其他数组
+  var base = 1024;
+  var table = [base,base+1,base+2,base+3];
+
+  var b  = [[1,{x:1,y:2}],[2,{x:3,y:5}]];
+
+  如果定义的时候省略了某个值，默认赋值为 undefined
+  var count = [1,,3];  //3 个元素，第二个是 undefined
+  
+  调用函数创建
+  (0)直接赋值
+    var arr = [2,4,5,5];
+  (1)调用不带参数的函数
+    var  arr = new Array();   //[]
+    arr[0] = 33;
+  (2)调用是传递参数，指定长度
+    var arr = new Array(3);  //预先分配好空间，[undefined,undefined,undefined]
+  (3)直接声明多个数组元素值
+    var arr = new Array(3,6,3,77,5);
+  
+
+    
+3、数组的读和写
+  数组通过下标索引读取内部存放的值，索引是从 0 开始的连续正整数。
+  var a = ["world"];  //定义一个数组，存放一个值"world"
+  var value = a[0];   //读取第一个 元素 value = "world"
+  a[1]  = 233;        //写入第二个元素 ["world",233]
+  var  i =2;          //当做数组索引
+  a[i] = 3;           //写入第三个元素 ["world",233,3] 
+  a[i+1] = "hello" ; //写入第四个元素["world",233,3,"hello"]
+  a[a[i]] = a[0] ;   //??["world",233,3,"world"]
+   
+    
+4、数组的长度
+  每个数组都有  length 属性，代表数组中元素的个数。比最大索引大 1
+  [].length;              //=>0
+  ['a','b','c'].length;   //=>3
+
+ ////////////////技巧///////////////////
+  如果设置 数组长度值，可以删除数组中的元素
+  var a = [1,2,3,4,5];   //5 个元素的数组，长度为5
+  console.log(a.length);
+  a.length  = 3;         //把数组修改为 [1,2,3]
+  a.length = 0 ;         //删除所有元素，a = []
+  a.length = 5;          //现在数组长度为 5 ，但是里面已经空了
+
+  ECMAScript 5 中 可以对数组的 length 属性，进行设置，不允许修改数组长度
+  var a  = [1,2,3];
+  Object.defineProperty(a,"length",{writable:false}); //让 length 属性只读
+  a.lenght = 0 ;        //数组中元素不会被删除，数组长度不变
+
+    
+5、数组元素的增加和删除
+  (1)最简单的方法，为新索引赋值
+   var  a = [];      //创建空数组
+   a[0] = "zero";    //往数组中添加值
+   a[1] = "one";     //手动的一个一个赋值
+   a[3] = "three";   //可以是不连续
+
+  (2)调用 函数 push(),只在数组尾部插入，只能是连续的
+   var a = [];
+   a.push("zero");    //在末尾添加一个元素   a = ["zero"];
+   a.push("one","two"); //一次性添加两个元素 a = ["zero","one","two"];
+  
+  //////////////////////////////////////// 
+  新建长度为 5 的数组，给数组中所有元素赋值为 0
+  (1)var arr = [0,0,0,0,0];
+  (2)var arr = [];
+     arr[0]=0;
+     arr[1]=0;
+     arr[2]=0;
+     arr[3]=0;
+     arr[4]=0;
+  (3)var arr = new Array(5);
+     arr.push(0);
+     arr.push(0);
+     arr.push(0);
+     arr.push(0);
+     arr.push(0);
+  (4)var arr = new Array(5);
+     //定义 i 为循环索引，等价于数组的索引
+     for(var i =0;i<5;i++){
+         arr[i] = 0;
+     }
+  
+     for(var i =0;i<5;i++){
+         arr.push(0);
+     }
+
+     for(var i=0;i<5;a[i++]=0) ;
+
+  ////////////////////////////////////////
+
+  删除是使用 delete  运算符
+  var  a = [1,2,3];
+  delete  a[1];      //a 在索引  1 位置的元素被删除。[1,,3]
+  console.log(1  in   a);   //false  ：查询发现 索引  1 在数组中未定义
+  console.log(a.length) ;   //3  ： 数组长度不受影响
+    
+
+
+6、数组的遍历
+  遍历：把数组中所有的元素，按照索引顺序，全部查询一遍。一个不漏
+
+  (1)使用 for 循环
+   var  keys = [3,2,1,4,5,7,6];
+   //挨个打印所有数组中的值
+   for(var i=0; i <keys.length ; i++){
+     var value = keys[i]; //使用下标索引对数组进行遍历
+     console.log(value);
+   }
+
+
+  (2)如果数组中有的位置没有值 null  undefined，需要判断
+   求指定数组中，所有元素的和
+   var arr = [null,33,25,,729,,277];
+    
+
+   for(var i=0 ; i<a.length ;i++){
+      if(!a[i]) continue;  //跳过 null  undefined 和不存在的元素
+      //循环体内容
+
+   }  
+ 
+
+   for(var i=0 ; i<a.length ;i++){
+      if(a[i] === undefined) continue;  //跳过 undefined 的元素
+      //循环体内容
+
+   } 
+   
+   for(var i=0 ; i<a.length ;i++){
+      if(!(i in a)) continue;  //跳过 不存在的元素
+      //循环体内容
+
+   } 
+
+
+  (2)ECMAScript 5 新方法----forEach()
+   var data = [1,2,3,4,5];      //
+   var sumOfSquares = 0 ;       //所有数据的平方和
+   data.forEach(function(x){    //把每个元素传递给这个函数
+	sumOfSquares += x*x ;   //平方相加
+   });
+   console.log(sumOfSquares);   //=>55    1+4+9+16+25
+
+
+
+
+
+
+
+
+
+
+
+    

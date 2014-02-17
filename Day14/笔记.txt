@@ -1,3 +1,5 @@
+https://github.com/CruiseLiugit/iOS
+
 目标
     表达式语句
     复合语句和空语句
@@ -32,6 +34,18 @@
             console.log(i);
             Math.abs(i);
 
+
+  JavaScript 代码的基本组成：
+  值---->变量------>表达式----->语句-------->代码块------------>函数
+                                       {                   function name(year){
+  10   var n=10;   n>100  var b=n>100;   var year=2010;      //不在块中定义 year
+                                         var year=n>100;    var b = ((year%100==0)&&(year%4==0))||year%400==0;
+                                         if(b){             if(b){
+                                             console.log();      console.log(year+"是闰年");
+                                         }                  }else{
+                                       }                         console.log(year+"不是闰年");
+                                                            }
+                                                           }
 2、复合语句和空语句
    可以使用  “逗号”  把多个表达式链接在一起，形成一个表达式。  
        var   a=10,b=100;
@@ -95,6 +109,27 @@ console.log(then);
    (4)如果函数内外，都定义了同同样的变量，变量的声明会被提前，但是赋值却是在函数内部，之前变量值为 undefined
    (5)多次声明同一个变量是无所谓的
 
+   var c;
+null undefined
+null:做了事情(分配了内存)、没有具体的内容(分配的内存中什么都没有放)
+undefined:根本就什么都没有做(没有分配内存)
+
+  /////////////////////////
+   //函数内外定义相同变量
+   var num = 10;      //第一次出现var num,值为 10
+   console.log(num);
+
+   function ff(){    //定义函数
+      var num = 20;  //第二次出现var num，检查到前面出现过，这里等价于
+                     //num = 20; 不会第二次定义变量 num，在这里进行赋值
+                     //第一次给 num 赋的值 10 就失效
+      console.log(num);
+   }
+   
+   ff();            //一个有 function name定义的 {}，不能直接运行，必须通过 name 调用
+  /////////////////////////
+
+
    function 用于定义函数
    例如
      var f = function(x){return x+1;}    //将表达式赋值给一个变量
@@ -110,7 +145,7 @@ console.log(then);
    (2)函数的 名字------可以变化，但是方便记忆的名字
    (3)函数的 输入------()
    (4)函数的 主体，代码块内容---{}
-   (5)函数的返回值-----不返回、手动返回结果  return xx;
+   (5)函数的 返回值-----不返回、手动返回结果  return xx;
     
 ////////////////////////////////////////
    求三个数中最大的一个数字
@@ -139,14 +174,26 @@ console.log(then);
 4、条件语句
    
    (1)if(逻辑表达式，返回只能是 true  false){}   //二选一
+      if(n > 10){
+          //进行操作
+      }
+      //否则不管
 
    (2)if(){}else{}   //二选一
+      if(n >10 ){
+          //满足时，怎么做
+      }else{
+          //不满足，怎么做
+      }
+
    (3)if(){
           if(){
 
           }
       }else{}
    (4)if(){}else if(){}
+      更多的二选一判断 
+
     判断多个数字的大小
     var num1 = 100;
     var num2 = 13;
@@ -229,12 +276,14 @@ console.log(then);
       console.log(num); 
    }
 
+   //一直循环、死循环
    while(10>0){
       console.log("hahaha");
    }
 
 
    (2)for
+
    (3)do{}while();
     //打印 0-9 之间的数字
      var num =0;
@@ -248,6 +297,7 @@ console.log(then);
        //for 循环，必须指定 循环的索引(类似与手表的发条)
        //循环初始值、循环的最大值、循环的增长量
        for(var i=0;i<10;i++){
+            //循环体 
             console.log(i);
        }
 
@@ -258,10 +308,51 @@ console.log(then);
     
 6、跳转语句
 
-   (1)break
-   (2)continue
-   (3)return
-   (4)throw
+   (1)break        中断，到这句话，程序整个不执行
+     for(var i=0;i<10;i++){
+	if(i == 5){
+	    break;
+	}
+        console.log(i);	   //打印输出 i 的值
+     }
+
+   (2)continue     继续，到这句话，程序不执行下面代码，跳转到指定代码继续执行
+     for(var i=1;i<=10;i++){
+	if(i == 5){
+	    continue;
+	}
+        console.log(i);	   //打印输出 i 的值
+     }
+
+     只打印 1-10之间的奇数
+     for(var i=1;i<=10;i++){
+	if(i%2==0){
+	    continue;  //偶数，跳过，不打印
+	}
+        console.log(i);	   //打印输出 i 的值
+     }
+     
+
+   (3)return     一定在函数的结尾使用，return 后面的语句不执行
+      返回函数结果。
+      //计算闰年的函数，随便输入一个年份，返回结果
+      function check_year(var year){
+           var res;       //定义保存函数判断结果的变量
+           //判断是否是闰年
+           if(((year%100!=0)&&(year%4==0))||year%400==0){
+              res = "闰年";
+           }else{
+              res = "非闰年";
+           }
+
+           return res;    //返回最终的结果
+      }
+      //调用
+      console.log(check_year(2014));
+      
+     
+
+   (4)throw             扔、抛出。当程序出现异常情况，主动停止程序
       function  f1(x){
          //如果输入参数非法，抛出一个异常
          if(x<0) throw  new Error("x 不能为负数");
@@ -271,7 +362,9 @@ console.log(then);
           return f;
       }       
 
-   (5)try/catch/finally
+
+   (5)try/catch/finally   专门处理程序抛出的异常，抛出异常如果不处理会终止
+                     使用 try  catch 能够对抛出的异常进行控制
        try{
            //要求用户输入一个数字
            var n = Number(prompt("请输入一个正整数",""));
@@ -284,6 +377,20 @@ console.log(then);
 	   //如果输入不合法，将执行这里的逻辑
            alert(ex);  //输出错误原因	
        }
+
+      //////////////////////////// 
+      //编写函数，计算两个数相除
+      function div(n1,n2){
+          try{  
+          	//如果输入的 n2 为 0  ，下面语句自动出现错误
+          	var result = n1/n2;  //n2 不能为 0
+          }catch(exception){
+		console.log("出现异常：原因除数不能为0");
+          }
+	  return result;
+      }     
+ 
+      div(23,0);
 
 
 
