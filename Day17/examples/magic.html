@@ -1,0 +1,36 @@
+<!DOCYTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8" />
+  <title>魔术</title>
+  <script language="JavaScript">
+    function showRabbit() {
+      var hatImage = document.getElementById("topHat");
+      hatImage.setAttribute("src", "rabbit-hat.gif");
+      var button = document.getElementById("hocusPocus");
+      button.setAttribute("value", "再变!");
+      button.onclick = hideRabbit;
+    }
+ 
+    function hideRabbit() {
+      var hatImage = document.getElementById("topHat");
+      hatImage.setAttribute("src", "topHat.gif");
+      var button = document.getElementById("hocusPocus");
+      button.setAttribute("value", "变!");
+      button.onclick = showRabbit;
+    }
+  </script>
+ </head>
+
+ <body>
+  <h1 align="center">欢迎观看 DOM 魔术!</h1>
+  <form name="magic-hat" >
+   <p align="center">
+    <img src="topHat.gif" id="topHat" />
+    <br /><br />
+    <input id="hocusPocus" type="button" value="变!" 
+           onClick="showRabbit();" />
+   </p>
+  </form>
+ </body>
+</html>

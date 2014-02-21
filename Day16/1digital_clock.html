@@ -1,0 +1,29 @@
+<!DOCTYPE html>                 <!-- 这是 HTML5 文件 -->
+<html>                          <!-- Root element -->
+<head>                          <!-- 标题 Title, 脚本scripts 样式 styles写在 head 中 -->
+<title>Digital Clock</title>
+<script>                        // A script of js code
+//定义一个能够在页面显示当前系统时间的函数
+function displayTime() {
+    var elt = document.getElementById("clock");  // 找到 id="clock" 的 HTML 元素
+    var now = new Date();                        // 得到当前系统时间
+    elt.innerHTML = now.toLocaleTimeString();    // 得到当前系统时间的字符串，并插入HTML 中
+    setTimeout(displayTime, 1000);               // 1 秒运行一次
+}
+window.onload = displayTime;  //当整个文档所有标签加载完成后，调用  输出时间的函数
+</script>
+<style>                         /* 定义显示时间的样式 */
+#clock {                        /* 找到 id="clock" 标签 */
+  font: bold 24pt sans;         /* 设置字体 */
+  background: #ddf;             /* 设置背景色 */
+  padding: 10px;                /* 设置内部边框和文字之间的间距 */
+  border: solid black 2px;      /* 设置边框 */
+  border-radius: 10px;          /* 设置边框圆角 (需要浏览器支持) */
+}
+</style>
+</head>
+<body>                    <!-- 用户看到的内容，定义在 body 中. -->
+<h1>系统时间</h1>          <!-- 标题 -->
+<span id="clock"></span>  <!-- 插入时间的 区域 -->
+</body>
+</html>

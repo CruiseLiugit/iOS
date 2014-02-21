@@ -1,0 +1,179 @@
+https://github.com/CruiseLiugit/iOS
+
+目标
+   网页中嵌入 JavaScript
+   脚本化文档
+   案例研究
+
+
+1、网页中嵌入 JavaScript
+   (1)内联:   
+
+
+   (2)外联
+   (3)嵌入 html 代码中:直接把 js 代码写入 HTML 标签内
+     <button >按钮</button>
+
+2、脚本化 html文档
+   人 玩游戏 选择一个人物。现实中的人、游戏中的人。游戏中的人是数据化的人。
+
+  HTML 文档:       由很多的 标签、CSS 代码组成
+  脚本化 HTML 文档: 用 JavaScript 代码，
+      把所有的 HTML CSS 代码转换成 JS 对象
+ 
+  HTML 文档
+        //唯一的名称 id="aa"
+   	<img src="hh.jpg" id="aa" width="" />
+  脚本化成 JS 对象
+        var img1 = window.document.getElementById("aa");
+        
+
+   客户端 JavaScript 使静态的 HTML 文档变成了交互式的 Web 应用。
+
+
+
+   在客户端 javaScript 中，为所有的 HTML 标签都重新定义了一套名称:
+    HTML 中叫做 <></>  ---- 标签
+    JavaScript中 <></> ----元素、节点
+
+<!-- 根标签 根节点 根元素 -->
+<html>
+    <!-- html 节点下的第一个子节点 -->
+    <head>
+        <meta charset="UTF-8" />
+        <!-- 标题 -->
+        <title>JavaScript 实例</title>
+   </head>
+   <body></body>
+</html>
+
+                      html         --- 最顶端，根节点 root
+                    /       \          parent
+                 head       body   --- 子节点，两个节点是兄弟关系
+                /   \                  child    
+              meta  title
+                      |
+                 "JavaScript 实例"
+
+
+    Node 对象 :  HTML 中任何一个节点，都是一个 Node 对象
+    Document 对象: 加载到浏览器中的，所有 html css js 代码的总称
+    Element 对象:  在 Document 中，某一个、某一些 html 标签
+    Text 对象 :    HTML 标签体的文字
+    Attribute 对象:不是 节点，是某个标签中的属性
+
+   如何在文档中查询或选取单独的元素
+    <p id="title" name="user"  class="cs">这里是一段话</p>
+
+    (1)用指定的 id 属性，因为id 唯一 ,所以得到唯一的一个对象，
+       var p = document.getElementById("title");
+		
+    (2)用指定的 name 属性,name 可能重复，取出的值存入数组
+       var p = document.getElementByName("user");
+
+    (3)用指定的 标签名
+       var p = document.getElementByTagName("p")[0];
+        
+       //使用快捷属性访问文档中各种节点  images  forms  links   <img > <form>  <a>
+       //body  <body>   head  <head>
+
+      //得到页面中所有的 img 标签
+      document.getElementByTagName("img") <==> document.images		
+
+
+       //隐藏页面所有图片
+       for(var i = 0; i < document.images.length; i++){
+		document.images[i].style.display = "none";
+	}
+	
+
+    (4)用指定的 css 类名
+       var  p = document.getElementByClassName();   
+
+
+   如何将文档作为节点树进行遍历，如何找到任何文档元素的祖先、兄弟、后代元素
+    parentNode
+        父节点，唯一
+
+    childNodes
+       子节点，多个
+
+    firstChild,lastChild
+       第一个、最后一个节点，如果没有则为 null
+
+    nextSibling、previoursSibling
+       当前节点，兄弟接口中的前一个、后一个，体现在文档中的先后顺序。
+
+    nodeType
+       节点类型， 9 表示 Document 节点，1 表示  Element 节点，
+                3 表示 text 节点 ，8 表示 Comment 节点
+
+    nodeValue
+      节点中的值
+
+    nodeName 
+      元素的名字
+
+    childElementCount
+      子元素数量，返回 等价于 children.length 
+
+   document.chidlNodes[0].childNodes[1]      ==  <body>
+   document.firstChild.firstChild.nextSibling==  <body>
+
+
+   如何查询、设置文档元素的属性
+     所有的标签属性，都是 name="value" 的名/值对组成
+     var image = document.getElementById("myimage");
+     var imgurl = image.src ;//获取 src 属性中的 url 路径
+     image.id === "myimage" ;   //判断图片的 id 
+
+     DOM API 方法
+     var imgobj = document.getElementById("img1");
+     imgobj.getAttribute("src");
+     imgobj.setAttribute("src","url");
+     imgobj.hasAttribute("href");      //判断是否有该属性
+     imgobj.removeAttribute("width");  
+
+   如何查询、设置、修改文档的内容
+     (1)内容是 HTML 字符串 "hello  <i>simple</i> document"
+     (2)内容是纯文字字符串  "你好"
+     (3)内容是 Text 节点，
+
+    innerHTML 用于读取或设置 标签元素中的 字符串内容
+    textCount    
+    
+ 
+
+   如何通过创建、插入、删除节点来修改文档结构
+	<head>
+		<title></title>
+                <!-- 用js 生成一个 html 标签，并且插入到 head 中 -->
+        </head>
+
+
+    var s =   document.createElement("script");  //创建普通节点
+    s.src = "url";
+    //<script src="jsurl" /></script>
+
+    ducoment.createTextNode("创建字符串节点");
+
+    document.insertBefore(待插入节点,父节点,已存在节点); //在指定节点位置插入新节点
+
+    document.removeChild(n)                 //删除指定节点对象
+
+    document.replaceChild(新的节点,旧的节点)   //替换两个节点对象
+
+   
+
+   
+
+3、案例研究
+
+
+
+
+
+
+
+
+    

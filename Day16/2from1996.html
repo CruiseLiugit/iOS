@@ -1,0 +1,17 @@
+<!-- 使用 document 对象的 write() 函数，可以直接输出内容到界面，让用户看到 -->
+
+<h1>Output</h1>
+<script>
+function factorial(n) {                 // 定义计算阶乘的函数
+    if (n <= 1) return n;
+    else return n*factorial(n-1);
+}
+
+document.write("<table>");                         // 用 javascript 打印 html 代码
+document.write("<tr><th>n</th><th>n!</th></tr>");  // 定义表格 头
+for(var i = 1; i <= 10; i++) {                     // 循环控制输出 10 行，每行输出一个值
+    document.write("<tr><td>" + i + "</td><td>" + factorial(i) + "</td></tr>");
+}
+document.write("</table>");                        // 表格结束
+document.write("Time: " + new Date());             // 打印当前系统时间
+</script>

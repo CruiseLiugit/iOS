@@ -1,0 +1,122 @@
+<!-- 声明下面所使用的 html 标签是 5 这个版本 -->
+<!DOCTYPE html>
+
+<!-- 根标签 -->
+<html>
+    <!-- 给浏览器、搜索引擎使用 -->
+    <head>
+        <!-- 字符编码 -->
+        <meta charset="UTF-8" />
+        <link />
+        <!-- 标题 -->
+        <title>JavaScript 实例</title>
+        
+        <!-- 一般可以写在 head 中，内联 javascript -->
+        <script type="text/javascript">
+            //代码写在函数内容，不会加载直接运行，通过调用运行
+            //通过函数名
+            function ff(){
+                alert("hello");
+            }
+        
+            //脚本化 img 标签为一个 js 对象
+            function ff2(){
+                //通过 id 找到标签
+                var img1 = document.getElementById("myimg1");
+                //alert(img1);
+                //{"src":"topHat.gif","id":"myimg1","width":200,"height":300}
+                //通过修改对象的属性，达到修改 网页内容的目的
+                img1.src = "rabbit-hat.gif";
+            }
+        </script>
+        <!-- 外部链接 js 文件 -->
+        <script src="my.js" ></script>
+        
+    </head>
+    
+    <!-- 给用户使用的内容 -->
+    <body>
+        <h1>嵌入</h1>
+        <!-- 事件触发 -->
+        <button onclick="javascript:alert('hello');">按钮</button>
+        
+        <h1>内联</h1>
+        <!-- 事件触发 -->
+        <img src="rabbit-hat.gif" onmousemove="ff()" width="" height="" />
+        
+        <h1>外联</h1>
+        <button onclick="f2()">按钮</button>
+        
+        
+        <h1>脚本化 img 标签</h1>
+        <img src="topHat.gif" id="myimg1" onmousemove="ff2()" width="" height="" />
+        
+        
+        <h1>获取 html 的标签并转换为 js 对象---脚本化</h1>
+        <p id="title" name="user"  class="cs">这里是一段话</p>
+        <button onclick="ff3()">按钮</button>
+        
+        <script type="text/javascript">
+            //通过 id name class 分别获取到 标签
+            function ff3(){
+                var obj1 = document.getElementById("title");
+                alert("obj1 ="+obj1);
+                alert("节点的类型 ="+obj1.nodeType);
+                
+                //name 可能重复，ByName 得到的是数组，取第一次的name=user
+                var obj2 = document.getElementsByName("user")[0];
+                alert("obj2 = "+obj2);
+                
+                var obj3 = document.getElementsByClassName("cs")[0];
+                alert("obj3 = "+obj3);
+                
+                
+                var obj4 = document.getElementsByTagName("p")[0];
+                alert("obj4 ="+obj4);
+                
+            }
+        </script>
+        
+        
+        <h1>隐藏页面所有的图片</h1>
+        <button onclick="hiddenImg()">隐藏所有图片</button>
+        <button onclick="showImgs()">显示所有图片</button>
+        
+        <script type="text/javascript">
+            function hiddenImg(){
+                //隐藏页面所有图片
+                for(var i = 0; i < document.images.length; i++){
+                    document.images[i].style.display = "none";
+                }
+            }
+        
+        function showImgs(){
+            //隐藏页面所有图片
+            for(var i = 0; i < document.images.length; i++){
+                document.images[i].style.display = "block";
+            }
+        }
+        </script>
+        
+        
+        <h1>获取head节点中的子节点数目</h1>
+        <button onclick="getNodeNums()">获取</button>
+        <script type="text/javascript">
+            //得到 head 标签中，所有子节点数目
+            function getNodeNums(){
+                //1 得到 head 标签的对象
+                var h = document.head;
+                var numbers = h.childElementCount;
+                alert("head 中有 "+numbers+" 个子节点");
+                var num2 = h.children.length;
+                 alert("head 中有 "+num2+" 个子节点");
+                
+            }
+        </script>
+        
+        
+        
+        
+    
+    </body>
+</html>

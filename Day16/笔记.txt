@@ -1,0 +1,239 @@
+https://github.com/CruiseLiugit/iOS
+
+目标
+    了解 JavaScript 对象
+    创建对象
+    对象属性查询和设置----JSON
+    浏览器中的  JavaScript--Window 对象
+
+
+1、了解 JavaScript 对象
+   Javascript 语言中，类型分为：原始类型、对象类型。
+
+   对象是一种复合类型：将很多值(原始值或数组或其他对象值)聚合在
+一起，可以通过 名称访问值。
+
+   对象可以看做："所有属性的无序集合"，每个属性都有 name/value，
+name 是字符串
+   对象使用符号 {} 表示，在其他语言中又有很多其他名称：
+散列、字典、关联数组
+   项目经理:张三
+
+   //定义学员对象，包含很多的信息
+   var name = "董樑"; //一个名字对应一个值，
+   var phone = "16387738462";
+
+   //用一个名字表示所有信息
+   var student = {
+  "name" : "董樑", 
+  "phone" : "16387738462",
+  "sex" : "男",
+  "成绩" : [
+    80,
+    60,
+    70,
+    79,
+    82
+  ],
+  "theacher" : {
+    "name" : "刘",
+    "sex" : "男",
+    "classname" : "OC语言"
+  }
+}
+
+
+json.org
+
+http://www.bejson.com
+
+
+   对象分类：
+   (1)内置对象:由 ECMAScript 规定好的 对象 或类，可以直接使用，
+如 数组、函数、日期等
+    Math
+    Array
+    Date:年份、月份、日、周、时、分、秒
+     console.log(new Date()); //{…..}
+
+   (2)宿主对象:由 JavaScript 解释器 所嵌入的宿主环境
+(一般指 网页浏览器软件)所定义的。不需要我们自己创建的对象
+    Window     指浏览器窗口
+    Location   指浏览器地址栏
+    History    指浏览器历史按钮(前进、后退)
+    Bookmark   指浏览器书签
+    Document   指浏览器解析出来的网页源代码(包含所有html css javascript)
+    Element    指浏览器代码中，所有的标签
+
+   (3)自定义对象:由运行中的 JavaScript 代码所创建的对象
+    var student = {…..};
+
+   (4)自有属性: 直接在对象中定义的属性 
+   对象中的每个 name 对应的值叫 对象的一个属性
+   student 对象，有5个属性：name phone sex 成绩 teacher
+
+   var student = {
+  "name" : "董樑", 
+  "phone" : "16387738462",
+  "sex" : "男",
+  "成绩" : [
+    80,
+    60,
+    70,
+    79,
+    82
+  ],
+  "theacher" : {
+    "name" : "刘",
+    "sex" : "男",
+    "classname" : "OC语言"
+  }
+}
+
+   (5)继承属性: 在对象的原型对象中定义的属性
+
+      
+ 
+2、创建对象
+  (1)对象直接量
+    var empty = {};          //对象，但是没有任何属性
+    var point = {"x":300,"y":200};   //两个属性，代表 坐标点的对象
+    var pointa = {"x":600,"y":200};
+    //定义一个对象，表示两个点之间的线
+    var line1 = {"start":{x:300,y:200},"end":{x:600,y:200}}
+    var line2 = {"start":point,"end":pointa};
+    //定义一个矩形，左上角的点 point，宽度300 ，高度 200
+    var rect ={"x":300,"y":200,"width":300,"height":200};
+
+    var point2 ={x:point.x,y:point.y+1}; //更复杂的值
+    var book = {
+        "main-title":"JavaScript",
+        "sub-title":"基础开发",
+        "for":"所有读者",
+        "author":{
+           "firstname":"刘",
+           "secondante":"立"
+        }
+    };
+
+  (2)new 创建对象 ，多用于创建   "内置对象"
+    //Object 指有 0 个或多个具体属性值的 事物
+    var obj = new Object();    //创建一个空对象 {}
+    var obja = new Array();
+    var objb = new Date();
+    //Array  Date  student 都是对象，语法上都会与 Object
+    //有关系--继承关系
+     
+  (3)原型
+    每个对象都与另外一个对象关联，这个对象就是 ---- 原型，
+每个对象都从原型继承属性
+
+    女娲造人：
+    上帝造人：亚当、夏娃，造人的时候最初的参照物--原型
+
+
+    Object.propotype 获取，
+    如 var arr = new Array();
+      Array.prototype
+ 
+      var dt = new Date();
+      Date.prototype
+
+      var point = {x:0,y:0}; 
+      Object.propotype;
+      point.propotype   //看不见，但是存在
+      point.x           //看得见的属性 x
+      point.y           //看得见的属性 y
+
+  (4)Object.create() 函数 
+     var o1 = Object.create({x:1,y:2});   //o1继承 属性 x y
+     var o2 = Object.create(Object.prototype); //{}  new Object()   
+
+
+3、对象属性查询和设置
+   通过 点(.) 或中括号([]) 运算符获取属性值。
+   var author = book.author;        //得到 book 对象的 author 属性{}
+   var name = author. firstname;    //获取 作者姓
+   var title = book["main-title"];  //获取 标题
+
+   var name = book.author.firstname ;  //可以
+
+   设置 对象属性值：
+   book.main-title = "CSS 高级开发";
+   
+    var student  ={"name":"张三",…..};
+    var computer ={"name":"Mac Pro",…};
+    //调用对象内部的属性或方法，都需要指定对象的名称
+    student.name
+
+ 
+4、浏览器中的  JavaScript--Window 对象
+   客户端 javascript 中，Window 对象是所有客户端 JavaScript 特性和 API 的主要接入点
+   (1)表示浏览器的一个窗口
+   (2)用 window 标示符引用
+   (3)该对象定义了一些属性，如 Location 对象，指代当前窗口的 URL
+      window.location = "http://www.baidu.com";
+     //后台打印当前正在浏览的界面 url
+     console.log(window.location);
+
+   (4)还有很多函数 alert() confirm() setTimeout()
+      window.alert("提示内容"),弹出框，有一个按钮
+      window.confirm() 确认框，有两个按钮
+
+console.log(window.alert(window.location));
+console.log(window.confirm(window.location));
+
+//延迟调用
+      //等两秒，弹出
+      window.setTimeout(function(){alert("hello");},2000); 
+   
+    不加 window 照样运行的原因：window 对象是最最常用的
+一个对象，针对浏览器编写 js ，所有代码全，前都应该带 window
+window.location
+window.alert()
+window.document.
+为了代码简化，默认可以把所有的 window 省略了。
+ 
+
+
+  (5)Window 对象的 unload 是最重要的事件处理程序之一
+  目前所有的代码，必须手动点击<运行>按钮，才能运行。如果希望
+页面加载时，自动开始调用 js 代码。
+   当...的时候，调用…代码
+   onXXX(函数name);
+   XXX 指具体的带动词性质的  动作或事件
+   
+   onload:当页面加载，
+   onclick:当鼠标点击
+   onchange:当值发生改变
+   onfocus:当获得鼠标焦点，
+   onblue:当失去鼠标焦点
+   onmouthmove:当鼠标移动  
+   onmouthover:当鼠标悬停
+
+   
+
+   Window 对象，首字母都大写。在代码中调用时，首字母小写
+
+
+   客户端JavaScript 中常用三个对象 Window  Document  Element 
+   在 Web 网页中使用 JavaScript 目的
+   (1)创建动画或其他视觉效果，巧妙引导和帮助用户进行页面导航
+   (2)对表格的列进行分组，让用户更容易找到所需要内容
+   (3)隐藏某些内容，让用户深入到内容时，再逐渐展示详细内容
+
+   网页中嵌入 JavaScript
+   (1)内联  
+   (2)外联
+   (3)嵌入 html 代码中
+
+
+
+
+
+
+
+
+
+
+    
