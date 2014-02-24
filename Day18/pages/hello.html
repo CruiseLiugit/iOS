@@ -1,0 +1,68 @@
+<!-- 声明下面所使用的 html 标签是 5 这个版本 -->
+<!DOCTYPE html>
+
+<!-- 根标签 -->
+<html>
+    <!-- 给浏览器、搜索引擎使用 -->
+    <head>
+        <!-- 字符编码 -->
+        <meta charset="UTF-8" />
+        <link />
+        <!-- 标题 -->
+        <title>JavaScript 实例</title>
+        
+        
+        
+    </head>
+    
+    <!-- 给用户使用的内容 -->
+    <body>
+        <h1>触发事件</h1>
+        <!-- 事件触发 -->
+        <button id="begin">按钮</button>
+        
+        <h1>切换的图片</h1>
+        <!-- 默认显示最后一张图片 -->
+        <img src="./images/9789339_600.jpg" id="changepic" width="600" height="398" />
+        
+        
+        
+        
+        
+    	<!-- 一般可以写在 head 中，内联 javascript -->
+        <script type="text/javascript">
+            //得到 按钮对象
+            var start=document.getElementById("begin");
+            //得到 图片对象
+ 			var chapic=document.getElementById("changepic");
+ 			//alert("chapic ="+chapic);
+            //定义循环的索引
+ 			var i=0;
+            //定义一个计时器对象
+ 			var timer=null;
+            
+            //代码块中的代码，加载完成，直接运行
+            //{}
+        
+            //必须通过调用，才能运行，不能直接运行
+            //function a(){}
+            
+            
+            //通过脚本化的 按钮对象，调用事件，运行一段"匿名函数"
+ 			start.onclick = function(){
+ 			    //注意此句,清除了计时器
+ 				clearInterval(timer);
+                
+				//延迟 1 秒，调用 ch 函数
+ 				timer=setInterval(ch,1000);
+                
+                //调用该函数，更换 图片
+ 				function ch(){
+ 					i++;
+ 					if(i>=9){i=0;}
+ 					chapic.src="./images/978933"+i+"_600.jpg";
+ 			    }
+ 			}
+        </script>
+    </body>
+</html>

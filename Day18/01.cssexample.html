@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8" />
+<style type="text/css">
+/* 设置标题字体的颜色和字体样式. */
+h1, h2 { color: blue; font-style: italic }
+
+/*
+ * 任意标签调用了 class="WARNING"，将会显示如下样式
+ */
+.WARNING {
+          font-weight: bold;
+          font-size: 150%;
+          margin: 0 1in 0 1in;    /* 外边框与 左右填充 1 in 单位 */
+          background-color: yellow;
+          border: solid red 8px;
+          padding: 10px;          /* 内容与边框之间上、右、下、左都填充 10 pixels */
+}
+
+/* 提前准备的 备用 css */
+.WARNING2 {
+    font-weight: bold;
+    font-size: 150%;
+    margin: 0 1in 0 1in;    /* 外边框与 左右填充 1 in 单位 */
+    background-color: blue;
+    border: solid green 8px;
+    padding: 10px;          /* 内容与边框之间上、右、下、左都填充 10 pixels */
+}
+
+
+
+/*
+ * 调用 class="WARNING" 的  h1 或 h2 标签，文字居中显示
+ */
+.WARNING h1, .WARNING h2 { text-align: center }
+
+/*  id="special" 文字居中，并且字母大写 */
+#special {
+      text-align: center;
+      text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+<h1>CSS 案例</h1>
+
+<div class="WARNING">
+<h2>警告</h2>
+这里是一个警告框！
+该警告框使用 CSS 样式进行设置，字体、颜色、背景、边框等属性。使用户能很醒目的看清楚警告内容。
+</div>
+
+<p id="special">
+This paragraph is centered<br>
+and appears in uppercase letters.<br>
+<span style="text-transform: none">
+Here we explicitly use an inline style to override the uppercase letters.
+</span>
+</p>
+
+<hr />
+<!-- 修改单个的 css 样式，把 h1 字体改大 -->
+<button id="demo1">修改h1字体大小</button>
+<script type="text/javascript">
+      //1 得到按钮对象
+      var btn1 = document.getElementById("demo1");
+      //2 设置 按钮 点击事件
+      btn1.onclick=function(){
+          //测试，是否能被调用
+          //alert("被点击了.....");
+          //3 找到 h1 对象
+          var e1 = document.getElementsByTagName("h1")[0];
+          //alert(e1);
+          //4 修改 h1 对象 style 属性
+          e1.style.fontSize = "6em";
+          e1.style.color  = "#FF5511";
+      };
+      
+</script>
+
+<!-- 修改 段落中 span 的样式 -->
+<button id="demo2">修改标签的 style 属性</button>
+<script type="text/javascript">
+        //1 得到 第二个按钮对象
+        var btn2 = document.getElementById("demo2");
+        //2 判断 点击事件
+        btn2.onclick = function(){
+            //3 得到 span 对象
+            var span = document.getElementsByTagName("span")[0];
+            //4 获取目前标签的样式
+            var oldcss = span.getAttribute("style");
+            //alert("span 标签现在的样式 :"+oldcss);
+            //5 修改为新的样式
+            //span.setAttribute("style","text-transform: none;color:red;font-size:3ex;");
+            span.style.cssText ="text-transform: none;color:red;font-size:3ex;";
+        };
+</script>
+
+
+<!-- 修改 警告框整体的样式 -->
+<button id="demo3">修改警告框 外边框</button>
+<script type="text/javascript">
+        //1 得到按钮
+        var btn3 = document.getElementById("demo3");
+        //2 设置按钮点击事件
+        btn3.onclick = function(){
+            //3 获得 警告框对象
+            var e3 = document.getElementsByTagName("div")[0];
+            //4 调用函数，修改样式类别名称
+            //参数一，被修改样式的对象
+            //参数二,修改后的样式名称 class=""
+            grabAttribute(e3,"WARNING2");
+            
+            function grabAttribute(e,cname){
+                e.className = cname;
+            }
+        };
+</script>
+
+
+</body>
+</html>
+

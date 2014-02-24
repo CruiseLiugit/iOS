@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+
+</head>
+
+<body>
+    <!-- onclick="shake(this,fadeOut);" -->
+    <button id="bt1" >按钮</button>
+    
+    <img id="img1" src="9789330_600.jpg" />
+
+
+    <script type="text/javascript" src="03.animations.js" ></script>
+    <script type="text/javascript">
+            //1 得到按钮对象
+            var bt1 = document.getElementById("bt1");
+            
+            //2 设置按钮点击事件
+            bt1.onclick = function(){
+                //3 得到图片对象
+                //var img1 = document.getElementById("img1");
+                
+                //4 设置图片动画效果
+                //shake(img1,fadeOut);
+                shake("img1",fadeOut,100,1000);
+                //fadeOut(img1);
+            };
+    </script>
+</body>
+
+</html>

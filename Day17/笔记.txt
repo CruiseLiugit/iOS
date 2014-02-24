@@ -50,35 +50,46 @@ https://github.com/CruiseLiugit/iOS
                       html         --- 最顶端，根节点 root
                     /       \          parent
                  head       body   --- 子节点，两个节点是兄弟关系
-                /   \                  child    
-              meta  title
+                /   \          | \       child    
+              meta  title      p  img(旧)     img(新)
                       |
-                 "JavaScript 实例"
+                 "JavaScript 实例"    
 
 
     Node 对象 :  HTML 中任何一个节点，都是一个 Node 对象
     Document 对象: 加载到浏览器中的，所有 html css js 代码的总称
-    Element 对象:  在 Document 中，某一个、某一些 html 标签
+    Element 对象:  在 Document 中，某一个、某一些 html 标签 <>
     Text 对象 :    HTML 标签体的文字
     Attribute 对象:不是 节点，是某个标签中的属性
 
+   
+
    如何在文档中查询或选取单独的元素
-    <p id="title" name="user"  class="cs">这里是一段话</p>
+    <p id="title" name="user"  class="cs" >这里是一段话</p>
+    //用 js 脚本化上面的标签，转换为 js 对象
+    var objp = document.getElementById("title");
+    //objp 对象中的内容
+    //{"id":"title","name":"user","class":"cs","style":""}
+    //通过 objp 可以操作里面的 Text 对象，改变里面的内容
+    objp.innerHTML = "这里是新的一段话";
+    //通过对象，访问、修改内部的属性值
+    objp.name = "aa";
+
 
     (1)用指定的 id 属性，因为id 唯一 ,所以得到唯一的一个对象，
        var p = document.getElementById("title");
 		
     (2)用指定的 name 属性,name 可能重复，取出的值存入数组
-       var p = document.getElementByName("user");
+       var p = document.getElementsByName("user");
 
     (3)用指定的 标签名
-       var p = document.getElementByTagName("p")[0];
+       var p = document.getElementsByTagName("p")[0];
         
        //使用快捷属性访问文档中各种节点  images  forms  links   <img > <form>  <a>
        //body  <body>   head  <head>
 
       //得到页面中所有的 img 标签
-      document.getElementByTagName("img") <==> document.images		
+      document.getElementsByTagName("img") <==> document.images		
 
 
        //隐藏页面所有图片

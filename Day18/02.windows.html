@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8" />
+
+<style type="text/css">
+/**
+ * 为 class="window" 的 div 标签，定义了三种样式
+ * 1、设置为绝对定位
+ * 2、设置了窗体的 宽度、高度
+ * 3、设置了边框粗细和3D 样式，以及边框颜色
+ **/
+div.window {  /* 指定窗口的尺寸和边框 */
+    position: absolute;         /* position 定位的值，在其他地方定义 */
+    width: 300px; height: 200px;/* 窗口尺寸，不包括边框 */
+    border: 3px outset gray;    /* 边框尺寸，注意 3D "outset" 边框效果 */
+}
+
+div.titlebar {  /* 指定标题栏 titlebar ，定位、尺寸、样式 */
+    position: absolute;         /* 定位方式，绝对定位 */
+    top: 0px; height: 18px;     /* 标题栏 18px + 内边距和边框 */
+    width: 290px;               /* 290 + 5px 左边内容填充 */
+    background-color: #aaa;     /* Titlebar 背景颜色 */
+    border-bottom: groove gray 2px;  /* Titlebar 只有底部有的边框样式 */
+    padding: 3px 5px 2px 5px;   /* 顺时针设置填充: top, right, bottom, left */
+    font: bold 11pt sans-serif; /* 标题字体 */
+}
+
+div.content {  /* 指定窗口内容的尺寸、定位和滚动 */
+    position: absolute;         /* 绝对定位 */
+    top: 25px;                  /* 18px title+2px border+3px+2px padding */
+    height: 165px;              /* 200px total - 25px titlebar - 10px padding*/
+    width: 290px;               /* 300px width - 10px of padding */
+    padding: 5px;               /* Allow space on all four sides */
+    overflow: auto;             /* 如果需要，显示滚动条 */
+    background-color: #fff;     /* 默认白色背景 */
+}
+
+div.translucent { /* 让窗口部分透明 */
+    opacity: .75;               /* 透明度标准样式， 0-1.0 之间的透明度值 */
+    filter: alpha(opacity=75);  /* IE 的透明度 */
+}
+</style>
+</head>
+
+<body>
+<!-- 定义一个窗口:  "window" div 有一个  titlebar 和 content 内容 -->
+<!-- 内部嵌入的 样式，指定定位的具体值 -->
+<div class="window" style="left: 10px; top: 10px; z-index: 10;">
+<div class="titlebar">窗口1 </div>
+<div class="content">
+1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>0<br><!-- 若干行 -->
+1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>0<br><!-- 展示滚动 -->
+</div>
+</div>
+
+<!-- 定义另外一个窗口，用不同的定位、颜色、字体 -->
+<div class="window" style="left: 75px; top: 110px; z-index: 20;">
+<div class="titlebar">窗口2</div>
+<div class="content translucent"
+     style="background-color:#ccc; font-weight:bold;">
+这里是另外一个窗口 ，通过设置 <tt>z-index</tt> 让这个窗口显示在第一个窗口上面。
+通过 CSS styles 使内容区域变成透明，需要浏览器支持透明属性.
+</div>
+</div>

@@ -1,0 +1,89 @@
+https://github.com/CruiseLiugit/iOS
+
+目标
+   CSS 回顾
+   脚本化 CSS 样式
+   案例研究
+
+1、CSS 回顾
+  CSS 选择器
+
+
+  重要的 CSS 属性
+  属性名                描述
+  --------------------------------------------------
+  position       定位 static absolute fixed  relative
+  top、left      元素上、左边缘位置 
+  bottom、right  元素下、右边缘位置
+  width、height  元素尺寸
+  z-index        元素与其他元素的 堆叠次序，第三个纬度
+  display        元素是否可见，none  block。不占文档流位置
+  visibility     元素是否可见,hidden visible。占文档流位置
+  margin、border、padding 盒状模型空白和边框
+  background     元素背景颜色或图片
+  
+  CSS3 透明
+  opacity:.75;               //透明度，css3 标准属性，值取 0-1
+  filter:alpha(opacity=75);  //IE 透明度，没有小数点
+
+2、脚本化 CSS 样式
+  （1）通过 js 对象，访问标签元素的 style 属性
+      e.style.fontSize = "24pt";
+      e.style.fontWeight = "bold";
+      e.style.color = "blue";
+
+    约定：JavaScript 中的 CSS 属性
+      [1]css 中的连字符 font-size。在 javaScript 当做减号，所以不能使用
+       e.style.font-size = "3ex";   //错误
+      [2]所有的定位属性，值都必须包含单位
+       e.style.left = 300;   //错误，必须是字符串
+       e.style.left = "300"; //错误，缺少单位
+    
+
+    正确Demo:
+      position:absolute;
+      font-family:sans-scrif;  
+      background-color:#ffffff;
+
+      e.style.position = "absolute";
+      e.style.fontFamily = "sans-serif";
+      e.style.backgroundColor = "#ffffff";
+
+   (2)通过 js 对象，调用方法进行访问
+     //设置样式
+     e.setAttribute("style",s);
+     e.style.cssText = s;
+
+     //访问样式
+     var s = e.getAttribute("style");
+     var s = e.style.cssText;
+
+   (3)通过 js 对象，动态调整 标签元素的 class 属性，可以动态改变元素样式
+     .attention{
+	background-color:yellow;  
+        font-weight:bold;
+        border:solid black 2px;
+     }
+
+     function grabAttribute(e){
+	e.className = "attention";
+     }
+
+     function releaseAttribute(e){
+	e.className = "";	
+     }
+
+
+3、案例研究
+  (1)通过 js 修改单个的 css 属性值
+  (2)通过 js 获取标签的 style 属性值
+  (3)通过 js 修改标签的 class 属性值
+  (4)复杂的动画案例
+   
+  
+
+
+
+
+
+    
