@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        
+        
+        
+        <!--1  引入jQMobile 框架  -->
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.css" />
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.js"></script>
+
+       <!-- 2 设置界面，适应屏幕尺寸。界面自动调整尺寸 -->
+       <meta name="viewport" content="width=device-width,initial-scale=1" />
+    </head>
+    
+    <body>
+       <!-- 3 固定的模板代码，新建一个 页面 -->
+       <!-- data-role  说明当前 div 是表示什么  -->
+       <!-- page:页面   header:顶部  content:内容区域  footer:底部 -->
+       <!-- 在一个 html 文件中，可以写多个 page。通过page id 跳转 -->
+       
+       
+       <!-- 第一页 -->
+       <!-- 通过标签属性，设置页面标题，在浏览器顶部显示 -->
+       <div data-role="page" id="pg1" data-title="Page1">
+           <!-- 头部 -->
+           <div data-role="header">
+               页面一
+           </div>
+
+           <!-- 内容 -->
+           <div data-role="content">
+               这里是内容
+               <!-- 页面跳转效果，默认 渐入渐出 -->
+               <!-- 界面之间切换的效果，叫转场 -->
+               <a  href="#pg2" data-transition="pop">跳转</a>
+           </div>
+
+           <!-- 底部 -->
+           <div data-role="footer">
+              <h3>底部</h3>
+           </div>
+
+       </div>
+       
+       
+       <!-- 第二页 -->
+       <div data-role="page" id="pg2">
+           <!-- 头部 -->
+           <div data-role="header">
+               页面二
+           </div>
+           
+           <!-- 内容 -->
+           <div data-role="content">
+               <h1>这里是第二页内容</h1>
+               <!-- 链接到具体的 page -->
+               <a href="#pg1">返回</a>
+               <!-- 调用浏览器的"返回"功能 -->
+               <a href="#" data-rel="back">后退</a>
+           </div>
+           
+           <!-- 底部 -->
+           <div data-role="footer">
+               <h3>底部</h3>
+           </div>
+           
+       </div>
+       
+       
+       
+       
+    
+    
+    
+    </body>
+</html>

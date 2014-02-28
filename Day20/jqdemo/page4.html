@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        
+        <!--1  引入jQMobile 框架  -->
+        <link rel="stylesheet" href="jquery.mobile-1.4.1.min.css" />
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="jquery.mobile-1.4.1.min.js"></script>
+        
+        <!-- 2 设置界面，适应屏幕尺寸。界面自动调整尺寸 -->
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+    </head>
+    
+    <body>
+        
+        <!-- data-add-back-btn="true" 添加默认的返回按钮 -->
+        <div id="restau" data-role="page" data-add-back-btn="false">
+            
+            <div data-role="header">
+                <a href="page3.html" data-role="button" data-icon="arrow-l">返回</a>
+                <h1>联系饭店</h1>
+            </div>
+            
+            
+            <!-- 内容 -->
+            <div data-role="content">
+                <!-- 两列布局 class="ui-grid-a" -->
+                <div class="ui-grid-a" id="restau_infos">
+                    <!-- 左边放文字 -->
+                    <div class="ui-block-a">
+                        <h1>xxx饭店</h1>
+                        <p><strong>正宗四川风味酒店，是聚餐的好地方</strong></p>
+                        <p>特色菜单: </p>
+                        <ul>
+                            <li> 干锅牛肉</li>
+                            <li> 成都毛血旺 </li>
+                            <li> 麻婆豆腐 </li>
+                        </ul>
+                    </div>
+                    <!-- 右边放图片 -->
+                    <div class="ui-block-b">
+                        <p><img src="imgs/gp3.jpg" alt="干锅牛蛙"/></p>
+                        <p><a href="#" rel="external" data-role="button">查看评价</a></p>
+                    </div>
+                </div><!-- /grid-a -->
+                <hr/>
+                
+                <!-- 两栏布局 -->
+                <div class="ui-grid-a" id="contact_infos">
+                    <div class="ui-block-a">
+                        <h2>联系我们</h2>
+                        <p>400-200-300</p>
+                    </div>
+                    <div class="ui-block-b">
+                        <img src="imgs/u2.jpg" alt="plan jeanette"/>
+                    </div>
+                </div><!-- /grid-a -->
+                <div id="contact_buttons">
+                    <a href="http://maps.google.fr/maps?q=jeannette+et+les+cycleux&hl=fr&sll=46.75984,1.738281&sspn=10.221882,18.764648&hq=jeannette+et+les+cycleux&t=m&z=13&iwloc=A" data-role="button" data-icon="maps"> Find us on Google Maps </a>
+                    <a href="tel:0388161072"  data-role="button" data-icon="tel"> 打电话给我们 </a>
+                </div>
+                <hr/>
+                
+                
+            </div>
+            
+        </div>
+    </body>
+    
+</html>

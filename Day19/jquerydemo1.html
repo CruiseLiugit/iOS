@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <style type="text/css">
+            .c1{
+                font-size:5em;
+                color:red;
+            }
+        
+            .c2{
+                background-color:yellow;
+                font-family:宋体;
+                color:blue;
+             }
+        </style>
+
+    </head>
+
+    <body>
+       <h1>Demo1<h1>
+       <img id="img1" src="9789330_600.jpg" width="600" height="398" />
+       
+       <button id="bt1">换图片</button>
+       <button id="bt2">得到图片名称</button>
+       <a href="http://www.baidu.com">百度</a>
+       
+       <h1 class="">Demo2</h1>
+       <button id="bt3">修改class 属性</button>
+       <button id="bt4">修改class 属性</button>
+       <button id="bt5">修改class 属性</button>
+       
+       <h2>修改标签内容</h2>
+       <button id="bt6">获取内容</button>
+       <button id="bt7">设置内容</button>
+       
+       <h3>修改元素坐标位置</h3>
+       <button id="bt8">横向移动100px</button>
+       
+        <!--1 在 页面中使用 jQuery -->
+        <script type="text/javascript" src="jquery-1.11.0.min.js"></script>
+        <!--2 当页面加载完成，开始使用 jQuery  -->
+        <script type="text/javascript">
+            //得到整个文档的 jQuery 对象      $(document)
+            //用该对象判断整个页面是否加载完成  .ready()
+            //我们要运行的代码，放在匿名函数中  function(){}
+            /*
+            $(document).ready(function(){
+                alert("hello jQuery");
+            });
+            */
+        
+           $(function($) {
+             //点击按钮  docuement.getElementById("bt1");
+             $("#bt1").click(function(){
+                //点击完按钮，所有操作在这里实现
+                //得到图片对象,修改 src 属性 obj.setAttribute("src","xxx.jpg");
+                //jQuery 方法可以连写
+        $("#img1").attr("src","9789336_600.jpg")
+                  .attr("width","300")
+                  .attr("height","150");
+                             
+                //所有链接，全部改成 新窗口打开
+                $("a").attr("target","_blank");
+            });
+             
+             
+             //点击按钮，获取标签属性值
+             $("#bt2").click(function(){
+                    //取出图片对象的 src 属性值
+                    alert($("#img1").attr("src"));
+              });
+             
+             
+             //点击按钮，修改 h1 的样式
+             $("#bt3").click(function(){
+                    $("h1").addClass("c1");
+             });
+             
+             $("#bt4").click(function(){
+                    //一次修改多条样式
+                    //$("h1").addClass("c1 c2");
+                    //切换用函数计算出来的类
+                    $("h1").toggleClass(function(n){
+                        return "big bold h"+n;
+                    });
+             });
+             
+             //交换两个 css 按钮
+             $("#bt5").click(function(){
+                    $("h1").toggleClass("c2");
+             });
+             
+             //获取设置 文字
+             $("#bt6").click(function(){
+                alert($("h2").text());
+                alert($("h2").html());
+            });
+             
+             $("#bt7").click(function(){
+                $("h2").html("哈哈哈");
+             });
+             
+             
+             //改变元素坐标
+             $("#bt8").click(function(){
+                var elt = $("#img1");      //需要移动的元素
+                var position = elt.offset(); //获取当前位置
+                position.top += 100;         //改变 Y 坐标
+                position.left += 100;        //改变 X 坐标
+                elt.offset(position);        //设置新位置
+             });
+             
+           });
+        </script>
+        
+    </body>
+</html>
+
+
+
+
+
+
+
+
+

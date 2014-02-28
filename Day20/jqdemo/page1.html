@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        
+        <!--1  引入jQMobile 框架  -->
+        <link rel="stylesheet" href="jquery.mobile-1.4.1.min.css" />
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="jquery.mobile-1.4.1.min.js"></script>
+        
+        <!-- 2 设置界面，适应屏幕尺寸。界面自动调整尺寸 -->
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+    </head>
+    
+    <body>
+        <!-- 第一页  data-theme 指默认提供的皮肤 -->
+        <div data-role="page" id="home">
+            <!-- 内容 -->
+            <div data-role="content">
+                <!-- 这里占位置 -->
+                <div id="branding">
+                    <h1>Restaurant Picker </h1>
+                </div>
+                
+                <!-- 列表 -->
+                <div class="choice_list">
+                    <h1> 请选择你喜欢吃的类型? </h1>
+                    <!-- 无序列表 data-role="listview" -->
+                    <ul data-role="listview"  data-inset="true">
+                        <li><a href="page2.html" data-transition="slidedown">
+                            <img src="imgs/gp4.jpg" width="" height="" />
+                            <h3>本帮菜</h3></a>
+                        </li>
+                        <li><a href="page2.html" data-transition="slidedown">
+                            <img src="imgs/gp3.jpg"/>
+                            <h3>四川菜</h3></a>
+                        </li>
+                        <li><a href="page2.html" data-transition="slidedown">
+                            <img src="imgs/gp2.jpg"/>
+                            <h3>湖南菜</h3></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+                        
+        </div>
+</body>
+
+</html>

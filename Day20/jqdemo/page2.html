@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        
+        <!--1  引入jQMobile 框架  -->
+        <link rel="stylesheet" href="jquery.mobile-1.4.1.min.css" />
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="jquery.mobile-1.4.1.min.js"></script>
+        
+        <!-- 2 设置界面，适应屏幕尺寸。界面自动调整尺寸 -->
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+    </head>
+    
+    <body>
+        
+        <!-- data-add-back-btn="true" 添加默认的返回按钮 -->
+        <div id="choisir_ville" data-role="page" data-add-back-btn="false">
+            
+            <div data-role="header">
+                <a href="page1.html" data-role="button" data-icon="arrow-l">返回</a>
+                <h1>选择所在区域</h1>
+                <a href="#" data-role="button" data-icon="check">按钮</a>
+            </div>
+            
+            <!-- 内容 -->
+            <div data-role="content">
+                <div class="choice_list">
+                    
+                    <h1> 选择区域? </h1>
+                    
+                    <!-- data-filter="true" 自动添加搜索栏 -->
+                    <ul data-role="listview"
+                        data-inset="true"
+                        data-filter="true" >
+                        
+                        <li><a href="page3.html" data-transition="slidedown">黄浦区<span > 3 </span></a></li>
+                        <li><a href="page3.html" data-transition="slidedown">徐汇区<span > 4 </span></a></li>
+                        <li><a href="page3.html" data-transition="slidedown">浦东新区<span > 5 </span></a></li>
+                        
+                     </ul>
+              </div>
+                
+          </div>
+            
+        </div>
+    </body>
+    
+</html>

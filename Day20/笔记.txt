@@ -1,0 +1,49 @@
+https://github.com/CruiseLiugit/iOS
+www.jquery.com
+
+W3CSchool 教程
+http://www.w3school.com.cn/jquerymobile/index.asp
+
+官网下载链接
+http://jquerymobile.com/download/
+
+英文版 API
+http://tool.oschina.net/apidocs/apidoc?api=jquery-mobile
+
+中文版 API
+http://www.jqmapi.com
+
+案例教程
+http://www.noupe.com/tutorial/jquery-mobile-tutorial-creating-a-restaurant-picker-web-app.html
+
+
+http://www.cnblogs.com/yuzhongwusan/archive/2011/11/24/2261571.html
+
+
+http://lili.birlt.com/jqdemo/page1.html
+
+
+目标
+   jQuery Mobile 基础
+   分析案例
+   实现案例功能
+
+1、jQuery Mobile 基础
+Jquery Mobile的策略可以很容易的概括：
+   创建一个顶级的javascript库，在不同的智能手机和桌面电脑的
+web浏览器上,形成统一的用户ui.
+
+下载  jQueryMobile
+
+
+
+2、分析案例
+      
+
+
+3、实现案例功能
+
+
+
+
+    

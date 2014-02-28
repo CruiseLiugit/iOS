@@ -1,0 +1,241 @@
+https://github.com/CruiseLiugit/iOS
+www.jquery.com
+http://hemin.cn/jq/
+
+http://www.htmldrive.net/
+
+
+目标
+   CSS  选择器回顾
+   jQuery 基础
+   jQuery 的 getter/setter
+   jQuery 修改文档结构
+   jQuery 处理事件
+   jQuery 动画效果   
+   案例研究
+
+1、CSS  选择器回顾
+   <p name="say" id="hello1" class="c1">hello</p>
+   <p name="" id="hello2" class="c2">web</p>    
+   <div class="c1" id="d1"></div>
+   (1)标签/元素选择器
+      /* 找到网页中所有的 p 标签 */
+      p{}
+
+   (2)id 选择器
+   (3)类别选择器
+   (4)复合选择器
+
+
+2、jQuery 基础
+   javaScript API 设计的比较简单，但是在浏览器市场的竞争中，所有公司都想一家独大，
+在自己的浏览器中，添加自己特有的功能，导致为了让同一个网页在所有浏览器中效果一样。
+需要编写很多的 css 和  javascript ，适应不同的浏览器。这样的问题叫“兼容性问题”。
+
+   为了解决兼容性问题，各个公司、个人开发者都想了很多办法，把平时积累的解决方案，打包
+做成了方便开发的 半成品，使用的时候直接导入一个或多个 js 文件，就可以轻松的解决兼容性问题
+，并能开发更多效果。这样的 产品叫 -----框架
+
+   jQuery 是目前占开发领域  60% 以上的框架。基本上只有写 js 肯定会遇到 jQuery.
+   Query 查询的意思。 jQuery 这个框架侧重点就在它功能强大的查询性能。
+   
+   jQuery 从 2006 年发展到现在，已经是一个非常庞大的框架了。但是基础非常简单。
+易学、易用、功能超级强大。
+   
+   (1)jQuery 全局函数 jQuery() ，快捷别名 $
+      jQuery 一切代码，都从美元符号开始 $()
+   (2)获取 jQuery,官网下载，并在 </body> 上面引入
+      <script src="jquery-1.x.x.js" ></script>
+   (3)jQuery() 函数  ===  $()
+      $() 内部可以使用 CSS 选择器语法，跟 CSS 一样的选中你想找的元素
+      $() 内部可以将 Element  Document  Window 等对象封装为 jQuery 对象
+      
+      jQuery 对象与 JavaScript 对象的区别
+      JavaScript 对象:  document
+	document.getElementById()
+        document.getElementsByTagName()[]
+      W3C DOM API
+        document.getElementsByTagName("body")[0]
+      ECMA API
+        document.body;
+
+      jQuery 对象:  $(document)
+        jQuery API
+         $(document).ready(); //判断文档是否加载完成
+
+   (4)jQuery 测试文档加载完成的函数
+      jQuery(function(){
+	//文档加载完成调用
+        //所有的 jQuery 代码放在这里
+	
+      });
+      或者
+      $(document).ready(function(){
+
+      });
+    
+   (5)jQuery 函数
+      是 jQuery()    或者 $() ,内部可以编写很多 jQuery 代码，实现特定功能 
+
+   (6)jQuery 对象
+      由 jQuery 函数返回的对象，一个 jQuery 对象可以调用的方法不是 js API 里
+的方法，而是 jQuery 库里面提供的方法，与 javaScript 对象不能混淆。
+
+   (7)jQuery 方法
+      jQuery 库提供的可以调用的方法，每个方法实现特定的一种或多种功能，每个方法返回
+的肯定还是一个 jQuery 对象。 
+     
+3、jQuery 的 getter/setter
+  getter/setter
+  例子：有一个储钱罐，往外拿钱、往内部放入钱。
+新买的，必须先放入钱，才能取出钱。放入多少，取出多少
+  放入值 setter 
+  取出值 getter
+  存取器 getter/setter
+  document.getAttribute("name");
+  document.setAttribute("name","value"); 
+
+   <p></p>
+
+   (1)查询和查询结果
+     $("body").length;  //=> 1 ，返回文档中，符合标签名为 body 的标签个数
+     $("body")[0];     //等价于 document.body  
+                       //document.getElementsByTagName("body")[0];     
+     如果不想使用数组，可以采用方法替代上面
+     $("body").size();
+     $("body").get(0)
+   
+   (2)getter/setter
+     jQuery 对象上，最简单、最常见的操作是获取 (get) 或设置(set)
+HTML 属性、CSS样式、元素文字内容、位置高宽等。
+
+     jQuery "使用同一个方法"，既当 getter 又当 setter。
+     区别，"传入值"时就是 setter ,"不传值"时就是 getter
+     
+     使用 getter 时，会从查询到的很多元素中，取第一个。返回单个值
+
+   (3)获取和设置 HTML 属性
+    attr() 是 document.getAttribute() 的jQuery 替换方法。主要用于获取或设置
+HTML 标签的属性值。
+
+   attr(name|properties|key,value|fn)
+
+   <img id="img1" src="img1.jpg" width="200" height="150" />
+
+   $("#img1").attr("src","img2.jpg");  //修改图片 
+   $("#img1").attr({                   //一次修改多个属性
+	src:"banner.gif",
+        width:"720",
+        height:"64"
+   }); 
+   
+   $(a).attr("target","_blank");  //所有链接，都在新窗口打开
+   $(a).removeAttr("target");     //删除属性
+
+  （4）获取和设置 CSS 样式
+     addClass()   removeClass()   toggleClass()  hasClass()
+     //添加  css 类
+     $("h1").addClass("cname");
+     $("h1+p").addClass("c1 c2");  //给所有 <h1> 后面的<p>添加两个类
+     
+     //删除 css 类
+     $("p").removeClass("c1");
+     $("p").removeClass("c1 c2");
+     $("div").removeClass();       //删除 所有 <div> 中是所有类
+
+     //切换 css 类
+     $("h1").toggleClass("big");   //切换 样式
+     $("h1").toggleClass(function(n){  //切换用函数计算出来的类
+		return "big bold h1-"+n;	
+     });
+
+     //检查 css 类
+     $("p").hasClass("first");     //所有 p 元素，是否都有 first 类
+     $("#lead").is(".first");      //功能与上面一样
+     
+    (5)设置和获取元素内容
+     text()   html() 
+  
+     var title = $("head title").text();    //获取纯文本 
+     var headline = $("h1").html();         //获取第一个 <h1> 元素的html
+     $("h1").text(function(n,current){      //给每个标题添加一个章节号码
+	return "@"+(n+1)+":"+current;
+     });
+ 
+    (6)获取和设置元素的位置宽高
+     offset() 方法获取或设置元素位置
+     
+     var elt = $("#sprite");      //需要移动的元素
+     var position = elt.offset(); //获取当前位置
+     position.top += 100;         //改变 Y 坐标
+     elt.offset(position);        //设置新位置
+
+     //将所有 <h1> 元素右移，移动距离取决于他们在文档中的位置
+     $("h1").offset(function(index,curpos){
+	return {left:curpos.left+25*index,top:curpos.top};
+     });
+
+
+4、修改文档结构
+   类似于 javaScript 可以找到父子、兄弟节点，并且可以对节点进行增加、删除、替换。
+用 jQuery 做更加方便。
+   
+   $("#log").append("<br />"+message); 
+   $("h1").prepend("@");        //每个 <h1> 标签开始的地方插入 @
+   $("h1").before("<hr/>");     //每个 <h1> 标签前面添加水平线
+   $("h1").after("<hr />");     //每个 <h1> 后面添加水平线
+   $("hr").replaceWith("<br />"); //把所有 <hr /> 替换成 <br />
+   $("h2").each(function(){       //把每个 <h2> 替换成<h1>  内容不变
+	var h2 = $(this);         //当前的 h2 标签
+        h2.replaceWith("<h1>"+h2.html+"</h1>");
+   }); 
+   
+5、jQuery 处理事件
+   jQuery 事件，把 JavaScript 中所有事件的名称进行保留，但是去掉了 on
+   
+   $("p").click(function(){
+	$(this).css("background-color","blue");
+   });   
+
+   blur()     focusin()      mousedown()      mouseup()
+   change()   focusout()     mouseenter()     mouseover()
+   keydown()  mouseleave()   focus()          click()
+   ……… 
+   
+
+6、jQuery 动画效果   
+  jQuery 定义了9 种简单的动画，按照功能分为 3 类型
+  (1)fadeIn()   fadeOut()
+   改变 css 的 opacity 属性，显示隐藏元素。都可以接收  时长、回调函数
+   保留元素在文档流中的位置
+
+  (2)show()     hide()    toggle()
+   移除元素在文档流中的位置   
+
+
+  (3)slideDown()   slideUp()    slideToggle()
+   slideUp()   隐藏jQuery() 中的对象，方法是将它的高度 动态改变到 0，然后设置 display none
+   slideDown()  相反
+
+   //使用 淡出效果将所有图像隐藏，然后显示它们，接着上滑、再下滑
+   $("img").fadeOut().show(500).slideUp().slideToggle();
+
+ 
+   自定义动画
+   animate() 方法，第一个参数指定动画内容，剩余参数指定如何制作动画，第一个参数必须是对象
+
+   slideUp() 效果，自定义如下
+   $("img").animate({height:0});
+
+   第二个参数，可选
+   $("img").animate({},{});
+
+   
+7、案例研究
+  
+
+
+
+
+
+    
